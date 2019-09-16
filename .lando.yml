@@ -1,0 +1,52 @@
+name: bbseg
+recipe: drupal8
+config:
+  webroot: docroot
+  via: apache
+  php: '7.3'
+  drush: '^8'
+  # Uncomment the following to override PHP's configuration.
+  # conf:
+    # php: config/custom.ini
+
+proxy:
+  # Uncomment these lines when the other websites are specified.
+  # appserver:
+    # - site2.lndo.site
+    # - site3.lndo.site
+    # - site4.lndo.site
+  edge:
+    - edge.lndo.site
+
+services:
+  # appserver:
+    # webroot: docroot/web
+    # Uncomment the following to enable xdebug + VSCode.
+    # xdebug: true
+    # config:
+      # php: .vscode/php.ini
+
+  database:
+    # Using 5.7 as Lando doesn't support Acquia's 5.6.
+    type: mysql:5.7
+
+  cache:
+    type: memcached:1.5.12
+    portforward: true
+
+  edge:
+    type: varnish
+    ssl: true
+    backends:
+      - appserver
+
+tooling:
+  varnishadm:
+    service: edge
+    user: root
+  varnishstat:
+    service: edge
+    user: root
+  varnishlog:
+    service: edge
+    user: root
