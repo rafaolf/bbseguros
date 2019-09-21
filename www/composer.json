@@ -8,9 +8,6 @@
         "cweagans/composer-patches": "^1.6.0",
         "drupal-composer/drupal-scaffold": "^2.0.0"
     },
-    "require-dev": {
-        "drush/drush": "^9.0"
-    },
     "config": {
         "process-timeout": 0,
         "vendor-dir": "docroot/vendor"
