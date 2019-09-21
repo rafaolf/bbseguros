@@ -1,7 +1,7 @@
 name: bbseg
 recipe: drupal8
 config:
-  webroot: docroot
+  webroot: www/docroot
   via: apache
   php: '7.3'
   drush: '^8'
@@ -20,7 +20,7 @@ proxy:
 
 services:
   # appserver:
-    # webroot: docroot/web
+    # webroot: www/docroot
     # Uncomment the following to enable xdebug + VSCode.
     # xdebug: true
     # config:
