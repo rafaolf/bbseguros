@@ -1,15 +1,15 @@
 global-styling:
   version: 1.x
   css:
-    base:
+    theme:
       css/base/elements.css: {}
       css/base/print.css: {}
       css/base/typography.css: {}
       css/base/variables.css: {}
-    components:
-    layout:
-    states:
-    theme:
+      css/components/components.css: {}
+      css/layout/layout.css: {}
+      css/states/states.css: {}
+      css/theme/theme.css: {}
 
 global-scripts:
   js:
