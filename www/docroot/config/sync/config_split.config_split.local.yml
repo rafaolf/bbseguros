@@ -1,0 +1,16 @@
+uuid: 16cf55ba-df39-4281-b620-7efb9bf716c2
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: Local
+description: 'Local configuration - development.'
+folder: config/envs/local
+module: {  }
+theme: {  }
+blacklist:
+  - system.performance
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

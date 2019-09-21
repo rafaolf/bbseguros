@@ -1,0 +1,17 @@
+uuid: 4a0066d0-a03a-4f05-aa5e-508f48ae186b
+langcode: en
+status: false
+dependencies: {  }
+id: prod
+label: Prod
+description: 'Configuration to be used on Acquia''s production environment.'
+folder: config/envs/prod
+module:
+  page_cache: 0
+theme: {  }
+blacklist:
+  - system.performance
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0
