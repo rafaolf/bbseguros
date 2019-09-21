@@ -1,0 +1,29 @@
+uuid: ec4ab06a-ce8a-45b1-bca5-7b2088f2665f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - entity_browser.browser.ckeditor_media_browser
+  content:
+    - 'file:file:578e1423-2223-4bde-b95e-7542fc6e271a'
+  module:
+    - entity_embed
+    - image
+    - media
+_core:
+  default_config_hash: nzDWz2tSS-4sOFyWM7gvY9ef2ads0uvr3U16TmxApQc
+label: 'Media browser'
+id: media_browser
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles: {  }
+  display_plugins:
+    - 'entity_reference:entity_reference_entity_view'
+    - media_image
+    - 'view_mode:media.embedded'
+  entity_browser: ckeditor_media_browser
+  entity_browser_settings:
+    display_review: false
+icon_uuid: 578e1423-2223-4bde-b95e-7542fc6e271a

@@ -6,7 +6,8 @@
     "require": {
         "acquia/lightning": "^4.0",
         "cweagans/composer-patches": "^1.6.0",
-        "drupal-composer/drupal-scaffold": "^2.0.0"
+        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "drupal/config_split": "^1.4"
     },
     "config": {
         "process-timeout": 0,

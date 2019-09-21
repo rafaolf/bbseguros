@@ -1,0 +1,17 @@
+uuid: e589146f-8342-4c37-a030-40fde92b4042
+langcode: und
+status: true
+dependencies:
+  module:
+    - media_entity_instagram
+_core:
+  default_config_hash: TKhdB_RfDh650Ek88BYOONs44QmJbbQGAEETcF-CEjo
+id: instagram
+label: Instagram
+description: 'Instagram posts.'
+source: instagram
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: embed_code
+field_map: {  }

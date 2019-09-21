@@ -1,0 +1,14 @@
+uuid: 5f9b2f13-254e-45fb-aba9-3e5f63d2aa01
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.layout_manager
+  module:
+    - user
+id: user_remove_role_action.layout_manager
+label: 'Remove the Layout manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: layout_manager

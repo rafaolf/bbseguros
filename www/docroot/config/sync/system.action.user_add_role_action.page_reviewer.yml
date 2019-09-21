@@ -1,0 +1,14 @@
+uuid: f009d8c8-e0fd-4fc5-bb26-cd172ae266f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.page_reviewer
+  module:
+    - user
+id: user_add_role_action.page_reviewer
+label: 'Add the Basic page reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: page_reviewer
