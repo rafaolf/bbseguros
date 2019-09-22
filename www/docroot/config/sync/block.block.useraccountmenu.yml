@@ -1,4 +1,4 @@
-uuid: 045999b3-db63-42da-84f1-a18d99898c67
+uuid: 520feb91-8de4-4696-a219-fd26394fcef6
 langcode: en
 status: true
 dependencies:
@@ -8,12 +8,10 @@ dependencies:
     - system
   theme:
     - bbseg
-_core:
-  default_config_hash: DweBpscQZdG0-fHkSpUzdYucrNH45G_KF7Z82V-oyQM
-id: bbseg_account_menu
+id: useraccountmenu
 theme: bbseg
-region: secondary_menu
-weight: 0
+region: header_second
+weight: -5
 provider: null
 plugin: 'system_menu_block:account'
 settings:
@@ -22,6 +20,6 @@ settings:
   provider: system
   label_display: '0'
   level: 1
-  depth: 1
+  depth: 0
   expand_all_items: false
 visibility: {  }

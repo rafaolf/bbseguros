@@ -10,8 +10,8 @@ _core:
   default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
 id: bbseg_powered
 theme: bbseg
-region: secondary_menu
-weight: 10
+region: footer_second
+weight: -6
 provider: null
 plugin: system_powered_by_block
 settings:
