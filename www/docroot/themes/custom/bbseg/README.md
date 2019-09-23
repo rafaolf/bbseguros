@@ -1,4 +1,4 @@
-# Claro Drupal admin theme
+# BB Seguros theme
 
 ## Pre-requisites
 Before starting, ensure that you are using at least the latest LTS release of

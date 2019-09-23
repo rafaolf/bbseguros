@@ -1,4 +1,6 @@
 name: bbseg
+env_file:
+  - defaults.env
 recipe: drupal8
 config:
   webroot: www/docroot
@@ -15,8 +17,8 @@ proxy:
     # - site2.lndo.site
     # - site3.lndo.site
     # - site4.lndo.site
-  edge:
-    - edge.lndo.site
+  # edge:
+    # - edge.lndo.site
 
 services:
   # appserver:
@@ -30,23 +32,52 @@ services:
     # Using 5.7 as Lando doesn't support Acquia's 5.6.
     type: mysql:5.7
 
-  cache:
-    type: memcached:1.5.12
-    portforward: true
+  node:
+    type: node:10
+    build:
+      - /bin/sh -c "if [ ! -z ${LANDO_MOUNT} ]; then cd ${LANDO_MOUNT}/${THEME_PATH} && npm install && npm install gulp -g; fi"
+    port: 3054
+    # overrides:
+      # image: 'agilecollective/lando-node:2.0.2-node8'
+      # ports:
+        # - '3053:3053' # You should change this port to something random and then update gulpconfig.js in the theme to match
 
-  edge:
-    type: varnish
-    ssl: true
-    backends:
-      - appserver
+  # cache:
+    # type: memcached:1.5.12
+    # portforward: true
+
+  # edge:
+    # type: varnish
+    # ssl: true
+    # backends:
+      # - appserver
+
+  # mailhog:
+    # type: mailhog
+    # hogfrom:
+      # - appserver
+    # portforward: true
 
 tooling:
-  varnishadm:
-    service: edge
-    user: root
-  varnishstat:
-    service: edge
-    user: root
-  varnishlog:
-    service: edge
-    user: root
+  # varnishadm:
+    # service: edge
+    # user: root
+  # varnishstat:
+    # service: edge
+    # user: root
+  # varnishlog:
+    # service: edge
+    # user: root
+  theme:
+    service: node
+    cmd: /app/script.sh
+    level: app
+    options:
+      command:
+        passthrough: true
+        alias:
+          - ni
+        describe: Choose the command to run on node container.
+        interactive:
+          type: input
+          default: npm install
