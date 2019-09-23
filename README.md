@@ -17,16 +17,14 @@ $ lando start
 which will create the following containers: appserver (Apache + PHP), database
 (MySQL) and Node (Node.js + Gulp).
 
-### Importing the initial database with Lightning.
-Run
+### Importing the initial database with Lightning
 ```
 $ lando db-import backups/first.sql
 ```
 
-### Installing Composer dependencies.
-Run
+### Installing Composer dependencies
 ```
-$ lando composer install
+$ cd www && lando composer install
 ```
 
 ## General development
@@ -35,7 +33,7 @@ Please follow Drupal usual workflow/strategy.
 ## Theme development
 In order to run NPM or Gulp commands on theme level, use
 ```
-$ lando tool
+$ lando theme
 ```
 and enter the command (e.g.: npm install, gulp sass, gulp watch, etc.). This
 will execute the instruction on node container.
