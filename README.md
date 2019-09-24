@@ -27,8 +27,24 @@ $ lando db-import backups/first.sql
 $ cd www && lando composer install
 ```
 
+### Importing the configuration
+```
+$ cd docroot && drush cim -y
+```
+
+## Login
+In order to login, usually the one-time login URL is used:
+```
+$ drush -l https://bbseg.lndo.site uli
+```
+Also, feel free to update the admin password with it and login through "/user".
+
 ## General development
-Please follow Drupal usual workflow/strategy.
+Please follow Drupal usual workflow/strategy. Also, keep in mind that Lando
+mimics the folder you're currently running any command, so drush should be used
+inside "www/docroot".
+@TODO: it might be a good idea to extend it (if possible) and make drush run on
+every path (something like we did for "theme" - check .lando.yml and script.sh).
 
 ## Theme development
 In order to run NPM or Gulp commands on theme level, use

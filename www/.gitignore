@@ -11,3 +11,6 @@
 
 # Ignore Composer-managed dependencies.
 vendor/
+
+# Ignore any settings file.
+/docroot/sites/default/*settings*
