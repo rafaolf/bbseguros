@@ -17,17 +17,17 @@ $ lando start
 which will create the following containers: appserver (Apache + PHP), database
 (MySQL) and Node (Node.js + Gulp).
 
-### Importing the initial database with Lightning
+#### Importing the initial database with Lightning
 ```
 $ lando db-import backups/first.sql
 ```
 
-### Installing Composer dependencies
+#### Installing Composer dependencies
 ```
 $ cd www && lando composer install
 ```
 
-### Importing the configuration
+#### Importing the configuration
 ```
 $ cd docroot && drush cim -y
 ```
@@ -42,8 +42,8 @@ Also, feel free to update the admin password with it and login through "/user".
 ## General development
 Please follow Drupal usual workflow/strategy. Also, keep in mind that Lando
 mimics the folder you're currently running any command, so drush should be used
-inside "www/docroot".
-@TODO: it might be a good idea to extend it (if possible) and make drush run on
+inside "www/docroot".\
+**@TODO**: it might be a good idea to extend it (if possible) and make drush run on
 every path (something like we did for "theme" - check .lando.yml and script.sh).
 
 ## Theme development
