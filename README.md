@@ -22,6 +22,30 @@ which will create the following containers: appserver (Apache + PHP), database
 $ lando db-import backups/first.sql
 ```
 
+#### Setting up the website
+Create a settings.php (mandatory file for Drupal installations) on
+www/docroot/sites/default by copying the default one from
+[drupal.org](https://api.drupal.org/api/drupal/sites%21default%21default.settings.php/8.7.x).
+
+##### Add the following database pointing at the end of it:
+```
+$databases['default']['default'] = array (
+  'database' => 'drupal8',
+  'username' => 'drupal8',
+  'password' => 'drupal8',
+  'prefix' => '',
+  'host' => 'database',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+```
+
+##### Include the configuration path as well:
+```
+$config_directories['sync'] = 'config/sync';
+```
+
 #### Installing Composer dependencies
 ```
 $ cd www && lando composer install
@@ -29,7 +53,7 @@ $ cd www && lando composer install
 
 #### Importing the configuration
 ```
-$ cd docroot && drush cim -y
+$ cd docroot && lando drush cim -y
 ```
 
 ## Login

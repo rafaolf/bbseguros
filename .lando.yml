@@ -81,3 +81,12 @@ tooling:
         interactive:
           type: input
           default: npm install
+  # Drupal Console is not working properly with Acquia Lightning distribution.
+  # As a workaround, use this tooling.
+  # Docs:
+  #   - https://drupalconsole.com/articles/add-drupalconsole-to-a-project-using-acquia-lightning-distribution
+  #   - https://github.com/acquia/lightning-project/issues/15#issuecomment-263377964
+  dcfix:
+    service: appserver
+    cmd: composer require drupal/console:~1.0 --prefer-dist --optimize-autoloader --sort-packages --no-update && composer update
+
