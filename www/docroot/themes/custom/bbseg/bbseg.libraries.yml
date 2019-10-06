@@ -13,6 +13,6 @@ global-styling:
 
 global-scripts:
   js:
-    js/custom.js: {}
+    js/global.js: {}
   dependencies:
     - core/jquery
