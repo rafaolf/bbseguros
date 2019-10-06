@@ -30,5 +30,6 @@ hidden:
   body: true
   field_ins_assists: true
   field_ins_qa: true
+  langcode: true
   links: true
   search_api_excerpt: true

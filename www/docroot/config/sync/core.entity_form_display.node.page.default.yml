@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.page.field_meta_tags
     - field.field.node.page.layout_selection
     - node.type.page
-    - workflows.workflow.editorial
   module:
     - content_moderation
     - metatag
@@ -40,6 +39,13 @@ content:
     region: content
     weight: 101
     settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   layout_selection:
     type: options_select
