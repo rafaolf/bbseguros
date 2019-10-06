@@ -1,0 +1,29 @@
+uuid: 5aae58bd-9311-435a-8bb0-9db3e27cb580
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ins_assists
+    - node.type.insurance
+    - taxonomy.vocabulary.assists
+id: node.insurance.field_ins_assists
+field_name: field_ins_assists
+entity_type: node
+bundle: insurance
+label: Assists
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      assists: assists
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

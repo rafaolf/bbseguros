@@ -1,0 +1,14 @@
+uuid: 58be3b0b-8fc7-4fbc-a9b6-843fcaa577c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dental_plan_creator
+  module:
+    - user
+id: user_add_role_action.dental_plan_creator
+label: 'Add the Dental Plan creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dental_plan_creator

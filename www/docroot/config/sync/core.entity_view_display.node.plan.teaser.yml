@@ -1,0 +1,29 @@
+uuid: a05554ce-4cbe-4572-804e-8cef145ceeb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.plan.body
+    - field.field.node.plan.field_plan_benefits
+    - node.type.plan
+  module:
+    - text
+    - user
+id: node.plan.teaser
+targetEntityType: node
+bundle: plan
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_plan_benefits: true
+  links: true
+  search_api_excerpt: true

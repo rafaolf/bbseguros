@@ -1,0 +1,14 @@
+uuid: fd0927bf-3d66-4940-b168-891a75aa0c3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.insurance_creator
+  module:
+    - user
+id: user_add_role_action.insurance_creator
+label: 'Add the Insurance creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: insurance_creator

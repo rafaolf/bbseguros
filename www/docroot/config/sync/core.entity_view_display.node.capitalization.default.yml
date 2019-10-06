@@ -1,0 +1,49 @@
+uuid: 6b6509b1-8531-4797-b4b8-8ea158dfca12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.capitalization.body
+    - field.field.node.capitalization.field_cpt_image
+    - field.field.node.capitalization.field_cpt_qa
+    - node.type.capitalization
+  module:
+    - image
+    - text
+    - user
+id: node.capitalization.default
+targetEntityType: node
+bundle: capitalization
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_cpt_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_cpt_qa:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

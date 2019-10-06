@@ -1,0 +1,14 @@
+uuid: c4f1a6ec-2bd8-4a6f-9329-257dc1867d87
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.insurance_reviewer
+  module:
+    - user
+id: user_add_role_action.insurance_reviewer
+label: 'Add the Insurance reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: insurance_reviewer

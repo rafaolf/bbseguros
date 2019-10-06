@@ -1,0 +1,19 @@
+uuid: a2ef37b9-b2ae-460e-9292-8beeda74204d
+langcode: en
+status: true
+dependencies: {  }
+id: insurance_reviewer
+label: 'Insurance reviewer'
+weight: 8
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any insurance content'
+  - 'edit any insurance content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

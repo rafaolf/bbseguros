@@ -1,0 +1,22 @@
+uuid: 48484f62-dd5d-4761-a6d8-9b28117b839b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.dental_plan
+  module:
+    - text
+id: node.dental_plan.body
+field_name: body
+entity_type: node
+bundle: dental_plan
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

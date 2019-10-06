@@ -1,0 +1,32 @@
+uuid: 908627d9-4e63-459e-a4a2-f8dbb6c8b806
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.capitalization.body
+    - field.field.node.capitalization.field_cpt_image
+    - field.field.node.capitalization.field_cpt_qa
+    - node.type.capitalization
+  module:
+    - image
+    - user
+id: node.capitalization.teaser
+targetEntityType: node
+bundle: capitalization
+mode: teaser
+content:
+  field_cpt_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_cpt_qa: true
+  links: true
+  search_api_excerpt: true

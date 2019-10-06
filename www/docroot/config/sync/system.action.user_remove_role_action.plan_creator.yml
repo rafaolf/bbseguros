@@ -1,0 +1,14 @@
+uuid: 28686b16-f480-4f90-a829-fe0948375d43
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.plan_creator
+  module:
+    - user
+id: user_remove_role_action.plan_creator
+label: 'Remove the Plan creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: plan_creator

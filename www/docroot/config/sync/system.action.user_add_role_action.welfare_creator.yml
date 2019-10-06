@@ -1,0 +1,14 @@
+uuid: 93ef3433-c27d-419b-ae99-356eccd29534
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.welfare_creator
+  module:
+    - user
+id: user_add_role_action.welfare_creator
+label: 'Add the Welfare creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: welfare_creator

@@ -1,0 +1,20 @@
+uuid: 3c32ec10-3091-4736-9e78-a755aefa2c2c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_cpt_qa
+field_name: field_cpt_qa
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

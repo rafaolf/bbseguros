@@ -1,0 +1,8 @@
+uuid: b7452c9a-9c6d-4705-a129-2e8b78b10ae6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Q&A'
+vid: question_answer
+description: 'Frequently asked questions with their respective answers.'
+weight: 0

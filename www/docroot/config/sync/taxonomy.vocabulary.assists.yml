@@ -1,0 +1,8 @@
+uuid: 789147ac-f331-455e-9f6b-07ddad151f48
+langcode: en
+status: true
+dependencies: {  }
+name: Assists
+vid: assists
+description: 'Assists for the chosen service.'
+weight: 0

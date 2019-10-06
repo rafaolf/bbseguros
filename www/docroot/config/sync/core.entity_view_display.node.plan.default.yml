@@ -1,0 +1,38 @@
+uuid: 841d7aab-923c-42aa-a6e6-75b81e6707ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plan.body
+    - field.field.node.plan.field_plan_benefits
+    - node.type.plan
+  module:
+    - text
+    - user
+id: node.plan.default
+targetEntityType: node
+bundle: plan
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_plan_benefits:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

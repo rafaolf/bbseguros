@@ -1,0 +1,14 @@
+uuid: 4fb5a24a-57ba-4309-98e6-1b436bacac40
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.welfare_reviewer
+  module:
+    - user
+id: user_remove_role_action.welfare_reviewer
+label: 'Remove the Welfare reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: welfare_reviewer

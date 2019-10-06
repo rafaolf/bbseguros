@@ -1,0 +1,14 @@
+uuid: 36c18bc7-e9bc-4e0b-8008-cb16bc1cf493
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.welfare_creator
+  module:
+    - user
+id: user_remove_role_action.welfare_creator
+label: 'Remove the Welfare creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: welfare_creator

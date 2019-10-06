@@ -1,0 +1,19 @@
+uuid: 135d48be-a5a0-4530-afd1-0096cdf4672a
+langcode: en
+status: true
+dependencies: {  }
+id: capitalization_reviewer
+label: 'Capitalization reviewer'
+weight: 12
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any capitalization content'
+  - 'edit any capitalization content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

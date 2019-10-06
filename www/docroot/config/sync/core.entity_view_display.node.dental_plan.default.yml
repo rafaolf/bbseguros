@@ -1,0 +1,40 @@
+uuid: d984cbcb-c959-4559-82e3-0577cbf1b191
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.dental_plan.body
+    - field.field.node.dental_plan.field_dental_image
+    - node.type.dental_plan
+  module:
+    - image
+    - text
+    - user
+id: node.dental_plan.default
+targetEntityType: node
+bundle: dental_plan
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_dental_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

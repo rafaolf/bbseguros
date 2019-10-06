@@ -1,0 +1,27 @@
+uuid: 76271f33-b3b9-492f-bf9d-2a3683eb2688
+langcode: en
+status: true
+dependencies: {  }
+id: insurance_creator
+label: 'Insurance creator'
+weight: 7
+is_admin: false
+permissions:
+  - 'access ckeditor_media_browser entity browser pages'
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access toolbar'
+  - 'configure any layout'
+  - 'create insurance content'
+  - 'create url aliases'
+  - 'edit own insurance content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view insurance revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

@@ -1,0 +1,19 @@
+uuid: 39c3efcf-24e4-46b4-9c00-79784d849260
+langcode: en
+status: true
+dependencies: {  }
+id: welfare_reviewer
+label: 'Welfare reviewer'
+weight: 10
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any welfare content'
+  - 'edit any welfare content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

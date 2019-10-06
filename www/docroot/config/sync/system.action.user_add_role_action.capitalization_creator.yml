@@ -1,0 +1,14 @@
+uuid: a36b456e-0ff4-4ac6-8cc3-88cc2005778d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.capitalization_creator
+  module:
+    - user
+id: user_add_role_action.capitalization_creator
+label: 'Add the Capitalization creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: capitalization_creator

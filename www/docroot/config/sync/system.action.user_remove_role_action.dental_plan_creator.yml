@@ -1,0 +1,14 @@
+uuid: 86e43eba-f8b1-4e63-81af-21b8bd626514
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dental_plan_creator
+  module:
+    - user
+id: user_remove_role_action.dental_plan_creator
+label: 'Remove the Dental Plan creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dental_plan_creator

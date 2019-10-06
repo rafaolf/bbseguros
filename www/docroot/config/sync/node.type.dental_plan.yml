@@ -1,0 +1,18 @@
+uuid: 7e5474d9-32d3-4641-a090-e41ed8edcaf0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Dental plan'
+type: dental_plan
+description: 'Our commitment is to provide complete and reliable plans that meet or anticipate customer needs.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

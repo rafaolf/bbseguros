@@ -1,0 +1,14 @@
+uuid: 7be8a675-71c2-491c-bedb-f111dd6c4125
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.plan_reviewer
+  module:
+    - user
+id: user_add_role_action.plan_reviewer
+label: 'Add the Plan reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: plan_reviewer

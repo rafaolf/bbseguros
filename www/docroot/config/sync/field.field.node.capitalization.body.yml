@@ -1,0 +1,22 @@
+uuid: d7049b93-8d33-464c-bf6d-58b1725f6b56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.capitalization
+  module:
+    - text
+id: node.capitalization.body
+field_name: body
+entity_type: node
+bundle: capitalization
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

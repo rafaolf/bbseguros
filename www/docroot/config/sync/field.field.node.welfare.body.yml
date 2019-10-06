@@ -1,0 +1,22 @@
+uuid: f4c21d81-63b7-4edf-8679-f963422b2203
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.welfare
+  module:
+    - text
+id: node.welfare.body
+field_name: body
+entity_type: node
+bundle: welfare
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

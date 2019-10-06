@@ -1,0 +1,14 @@
+uuid: c5818906-1604-4bab-a049-f90795a0d4bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dental_plan_reviewer
+  module:
+    - user
+id: user_add_role_action.dental_plan_reviewer
+label: 'Add the Dental Plan reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dental_plan_reviewer

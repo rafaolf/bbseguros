@@ -1,0 +1,27 @@
+uuid: cfa29014-cf51-4ada-9e1b-2f307068f372
+langcode: en
+status: true
+dependencies: {  }
+id: dental_plan_creator
+label: 'Dental Plan creator'
+weight: 13
+is_admin: false
+permissions:
+  - 'access ckeditor_media_browser entity browser pages'
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access toolbar'
+  - 'configure any layout'
+  - 'create dental_plan content'
+  - 'create url aliases'
+  - 'edit own dental_plan content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view dental_plan revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

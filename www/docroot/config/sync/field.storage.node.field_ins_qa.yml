@@ -1,0 +1,20 @@
+uuid: e17f5a1d-fdee-4120-8aa6-c4df7ea5c87b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_ins_qa
+field_name: field_ins_qa
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

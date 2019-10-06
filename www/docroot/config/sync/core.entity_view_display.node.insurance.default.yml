@@ -1,0 +1,51 @@
+uuid: 22673190-1a4f-483c-9ff9-ba601e1c07ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.insurance.body
+    - field.field.node.insurance.field_ins_assists
+    - field.field.node.insurance.field_ins_image
+    - field.field.node.insurance.field_ins_qa
+    - node.type.insurance
+  module:
+    - image
+    - text
+    - user
+id: node.insurance.default
+targetEntityType: node
+bundle: insurance
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ins_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ins_qa:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ins_assists: true
+  search_api_excerpt: true

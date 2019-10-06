@@ -1,0 +1,14 @@
+uuid: a50465ff-e514-4a86-8ece-c1108ceca6aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.capitalization_reviewer
+  module:
+    - user
+id: user_add_role_action.capitalization_reviewer
+label: 'Add the Capitalization reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: capitalization_reviewer

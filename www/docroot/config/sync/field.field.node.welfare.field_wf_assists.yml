@@ -1,0 +1,29 @@
+uuid: 2cb18b4c-eba1-4b1d-bd22-410be031b835
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wf_assists
+    - node.type.welfare
+    - taxonomy.vocabulary.assists
+id: node.welfare.field_wf_assists
+field_name: field_wf_assists
+entity_type: node
+bundle: welfare
+label: Assists
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      assists: assists
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

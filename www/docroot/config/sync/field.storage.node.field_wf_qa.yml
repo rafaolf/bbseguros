@@ -1,0 +1,20 @@
+uuid: af7ffa6d-2a48-4ae3-a52d-30fa3c098d9d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_wf_qa
+field_name: field_wf_qa
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

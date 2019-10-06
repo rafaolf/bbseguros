@@ -1,0 +1,22 @@
+uuid: c2970a29-b556-49a2-8631-572f38d7184b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.plan
+  module:
+    - text
+id: node.plan.body
+field_name: body
+entity_type: node
+bundle: plan
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

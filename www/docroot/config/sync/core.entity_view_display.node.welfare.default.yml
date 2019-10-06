@@ -1,0 +1,58 @@
+uuid: a4e83b8c-2bf8-4646-95f0-3a555588ce52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.welfare.body
+    - field.field.node.welfare.field_wf_assists
+    - field.field.node.welfare.field_wf_image
+    - field.field.node.welfare.field_wf_qa
+    - node.type.welfare
+  module:
+    - image
+    - text
+    - user
+id: node.welfare.default
+targetEntityType: node
+bundle: welfare
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_wf_assists:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_wf_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_wf_qa:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

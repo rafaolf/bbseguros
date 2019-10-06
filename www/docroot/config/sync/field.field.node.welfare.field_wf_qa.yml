@@ -1,0 +1,29 @@
+uuid: 541ccce0-4bb8-42b2-b2c0-ffebee368e25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wf_qa
+    - node.type.welfare
+    - taxonomy.vocabulary.question_answer
+id: node.welfare.field_wf_qa
+field_name: field_wf_qa
+entity_type: node
+bundle: welfare
+label: 'Q&A'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      question_answer: question_answer
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

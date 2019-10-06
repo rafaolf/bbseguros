@@ -1,0 +1,14 @@
+uuid: 830bee85-03d1-40ea-8c87-564dec2cbc35
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.insurance_creator
+  module:
+    - user
+id: user_remove_role_action.insurance_creator
+label: 'Remove the Insurance creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: insurance_creator

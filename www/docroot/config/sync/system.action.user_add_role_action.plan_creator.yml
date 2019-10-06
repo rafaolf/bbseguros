@@ -1,0 +1,14 @@
+uuid: 44fe0570-6180-4bbd-ae56-8707b7ce169b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.plan_creator
+  module:
+    - user
+id: user_add_role_action.plan_creator
+label: 'Add the Plan creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: plan_creator

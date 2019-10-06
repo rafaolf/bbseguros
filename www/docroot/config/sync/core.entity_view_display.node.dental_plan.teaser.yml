@@ -1,0 +1,30 @@
+uuid: 77f48313-ce3a-4357-90a3-9bb4a417d65d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.dental_plan.body
+    - field.field.node.dental_plan.field_dental_image
+    - node.type.dental_plan
+  module:
+    - image
+    - user
+id: node.dental_plan.teaser
+targetEntityType: node
+bundle: dental_plan
+mode: teaser
+content:
+  field_dental_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  links: true
+  search_api_excerpt: true

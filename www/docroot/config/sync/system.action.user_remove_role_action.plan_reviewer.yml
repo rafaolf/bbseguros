@@ -1,0 +1,14 @@
+uuid: cedc7af6-2b09-4d60-8b83-583e4b77c7bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.plan_reviewer
+  module:
+    - user
+id: user_remove_role_action.plan_reviewer
+label: 'Remove the Plan reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: plan_reviewer

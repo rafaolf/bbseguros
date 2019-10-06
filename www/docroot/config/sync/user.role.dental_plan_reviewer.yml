@@ -1,0 +1,19 @@
+uuid: 74d029fd-40ef-4bdb-a8e1-142475adc11e
+langcode: en
+status: true
+dependencies: {  }
+id: dental_plan_reviewer
+label: 'Dental Plan reviewer'
+weight: 14
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'delete any dental_plan content'
+  - 'edit any dental_plan content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'view any unpublished content'
+  - 'view latest version'

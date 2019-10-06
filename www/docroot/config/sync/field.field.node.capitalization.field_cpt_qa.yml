@@ -1,0 +1,29 @@
+uuid: e863a9bd-586c-4cd3-8931-838f98fd99dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpt_qa
+    - node.type.capitalization
+    - taxonomy.vocabulary.question_answer
+id: node.capitalization.field_cpt_qa
+field_name: field_cpt_qa
+entity_type: node
+bundle: capitalization
+label: 'Q&A'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      question_answer: question_answer
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

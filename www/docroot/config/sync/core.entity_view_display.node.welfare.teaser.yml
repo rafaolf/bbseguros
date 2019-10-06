@@ -1,0 +1,34 @@
+uuid: 292341e0-e30a-4280-9a12-649bc17f1f54
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.welfare.body
+    - field.field.node.welfare.field_wf_assists
+    - field.field.node.welfare.field_wf_image
+    - field.field.node.welfare.field_wf_qa
+    - node.type.welfare
+  module:
+    - image
+    - user
+id: node.welfare.teaser
+targetEntityType: node
+bundle: welfare
+mode: teaser
+content:
+  field_wf_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_wf_assists: true
+  field_wf_qa: true
+  links: true
+  search_api_excerpt: true

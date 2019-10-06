@@ -1,0 +1,14 @@
+uuid: 3db57222-8b16-4487-b09d-178987c83f88
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dental_plan_reviewer
+  module:
+    - user
+id: user_remove_role_action.dental_plan_reviewer
+label: 'Remove the Dental Plan reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dental_plan_reviewer

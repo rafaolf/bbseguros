@@ -1,0 +1,14 @@
+uuid: d93286a0-585d-43e9-b254-17b08d0e3a8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.capitalization_reviewer
+  module:
+    - user
+id: user_remove_role_action.capitalization_reviewer
+label: 'Remove the Capitalization reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: capitalization_reviewer

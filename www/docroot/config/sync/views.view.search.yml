@@ -77,8 +77,13 @@ display:
         options:
           view_modes:
             'entity:node':
+              capitalization: default
+              dental_plan: default
+              insurance: default
               landing_page: teaser
               page: teaser
+              plan: default
+              welfare: default
       fields:
         rendered:
           table: search_api_index_content

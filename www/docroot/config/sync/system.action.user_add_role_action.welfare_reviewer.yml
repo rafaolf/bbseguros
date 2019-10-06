@@ -1,0 +1,14 @@
+uuid: a285efd2-8921-4112-9eb7-afff00b74c8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.welfare_reviewer
+  module:
+    - user
+id: user_add_role_action.welfare_reviewer
+label: 'Add the Welfare reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: welfare_reviewer

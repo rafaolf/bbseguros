@@ -1,0 +1,27 @@
+uuid: 5459980f-7c24-4885-b843-6511b26f2a6f
+langcode: en
+status: true
+dependencies: {  }
+id: welfare_creator
+label: 'Welfare creator'
+weight: 9
+is_admin: false
+permissions:
+  - 'access ckeditor_media_browser entity browser pages'
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access toolbar'
+  - 'configure any layout'
+  - 'create url aliases'
+  - 'create welfare content'
+  - 'edit own welfare content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use moderation sidebar'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view welfare revisions'

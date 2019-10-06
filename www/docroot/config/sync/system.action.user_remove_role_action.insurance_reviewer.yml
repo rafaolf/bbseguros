@@ -1,0 +1,14 @@
+uuid: d05dbfc4-e69c-4b9a-9b20-f2ef3b741304
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.insurance_reviewer
+  module:
+    - user
+id: user_remove_role_action.insurance_reviewer
+label: 'Remove the Insurance reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: insurance_reviewer
