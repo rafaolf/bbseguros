@@ -1,0 +1,29 @@
+label: 'Página Inicial'
+description: 'Todo o conteúdo promovido à página inicial.'
+display:
+  default:
+    display_options:
+      empty:
+        title:
+          title: 'Bem-vindo a [site:name]'
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Ascendente
+          sort_desc_label: Decrescente
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
+          tags:
+            previous: '‹ Voltar'
+            next: 'Avançar ›'
+    display_title: Principal
+  feed_1:
+    display_title: Feed
+  page_1:
+    display_title: Página

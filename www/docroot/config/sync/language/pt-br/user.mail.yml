@@ -1,0 +1,26 @@
+cancel_confirm:
+  body: "[user:display-name],\r\n\r\nUma solicitação para cancelar sua conta foi feita em [site:name].\r\n\r\nVocê pode cancelar sua conta em [site:url-brief] agora clicando neste link ou copiando e colando em seu navegador:\r\n\r\n[user:cancel-url]\r\n\r\nNOTA: O cancelamento de sua conta é irreversível.\r\n\r\nEste link irá expirar dentro de um dia e, caso não seja usado, sua conta não sofrerá modificações.\r\n\r\n--  Equipe [site:name]"
+  subject: 'Solicitação de cancelamento de conta para [user:display-name] em [site:name]'
+password_reset:
+  body: "[user:display-name],\r\n\r\nUma solicitação para resetar sua senha foi feita em [site:name].\r\n\r\nVocê pode se autenticar agora clicando neste link ou copiando e colando em seu navegador:\r\n\r\n[user:one-time-login-url]\r\n\r\nEsse link pode ser usado para se autenticar apenas uma vez e o levará a uma página onde você pode definir sua senha. Ele irá expirar dentro de um dia e, caso não seja usado, nada será alterado.\r\n\r\n--  Equipe [site:name]"
+  subject: 'Novas informações de autenticação para [user:display-name] em [site:name]'
+register_admin_created:
+  body: "[user:display-name],\r\n\r\nUm administrador do site [site:name] criou uma conta para você. Você pode se autenticar clicando neste link ou copiando e colando em seu navegador:\r\n\r\n[user:one-time-login-url]\r\n\r\nEsse link pode ser usado para se autenticar apenas uma vez e o levará a uma página onde você pode definir sua senha.\r\n\r\nApós configurar sua senha, você poderá se autenticar em [site:login-url] no futuro usando:\r\n\r\nusuário: [user:name]\r\nsenha: Sua senha\r\n\r\n--  Equipe [site:name]"
+  subject: 'Um administrador criou uma conta para você no site [site:name]'
+register_no_approval_required:
+  body: "[user:display-name],\r\n\r\n\r\nObrigado por se registrar em [site:name]. Você pode se autenticar clicando neste link ou copiando e colando em seu navegador:\r\n\r\n[user:one-time-login-url]\r\n\r\nEsse link pode ser usado para se autenticar apenas uma vez e o levará a uma página onde você pode definir sua senha.\r\n\r\nApós configurar sua senha, você poderá se autenticar em [site:login-url] no futuro usando:\r\n\r\nusuário: [user:name]\r\nsenha: Sua senha\r\n\r\n--  Equipe [site:name]"
+  subject: 'Detalhes de conta para [user:display-name] em [site:name]'
+register_pending_approval:
+  subject: 'Detalhes de conta para [user:display-name] em [site:name] (aguardando aprovação de um administrador)'
+register_pending_approval_admin:
+  body: "[user:display-name] solicitou a criação de uma conta.\r\n\r\n[user:edit-url]"
+  subject: 'Detalhes de conta para [user:display-name] em [site:name] (aguardando aprovação de um administrador)'
+status_activated:
+  body: "[user:display-name],\r\n\r\nSua conta em [site:name] foi ativada.\r\n\r\nVocê pode se autenticar clicando neste link ou copiando e colando em seu navegador:\r\n\r\n[user:one-time-login-url]\r\n\r\nEsse link pode ser usado para se autenticar apenas uma vez e o levará a uma página onde você pode definir sua senha.\r\n\r\nApós configurar sua senha, você poderá se autenticar em [site:login-url] no futuro usando:\r\n\r\nusuário: [user:account-name]\r\nsenha: Sua senha\r\n\r\n--  Equipe [site:name]"
+  subject: 'Detalhes da conta para [user:display-name] em [site:name] (aprovada)'
+status_blocked:
+  body: "[user:display-name],\r\n\r\nSua conta em [site:name] foi bloqueada.\r\n\r\n--  Equipe [site:name]"
+  subject: 'Detalhes da conta para [user:display-name] em [site:name] (bloqueada)'
+status_canceled:
+  body: "[user:display-name],\r\n\r\nSua conta em [site:name] foi cancelada.\r\n\r\n--  Equipe [site:name]"
+  subject: 'Detalhes da conta para [user:display-name] em [site:name] (cancelada)'

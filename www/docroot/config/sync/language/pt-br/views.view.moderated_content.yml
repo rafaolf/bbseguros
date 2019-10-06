@@ -1,0 +1,55 @@
+label: 'Conteúdo moderado'
+display:
+  default:
+    display_title: Principal
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Ascendente
+          sort_desc_label: Decrescente
+      pager:
+        options:
+          tags:
+            previous: '‹ Voltar'
+            next: 'Avançar ›'
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
+      fields:
+        title:
+          label: Título
+          separator: ', '
+        type:
+          label: 'Tipo de conteúdo'
+          separator: ', '
+        name:
+          label: Autor
+          separator: ', '
+        moderation_state:
+          label: 'Estado da moderação'
+          separator: ', '
+        changed:
+          label: Atualizado
+          separator: ', '
+        operations:
+          label: Operações
+      filters:
+        title:
+          expose:
+            label: Título
+        type:
+          expose:
+            label: 'Tipo de conteúdo'
+        moderation_state:
+          expose:
+            label: 'Estado da moderação'
+        langcode:
+          expose:
+            label: Idioma
+      title: 'Conteúdo moderado'
+  moderated_content:
+    display_title: 'Conteúdo moderado'

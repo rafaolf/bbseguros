@@ -1,0 +1,46 @@
+label: 'Mensagens de contato'
+display:
+  default:
+    display_title: Principal
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Ascendente
+          sort_desc_label: Decrescente
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
+          tags:
+            previous: '‹ anterior'
+            next: 'próximo ›'
+            first: '« início'
+            last: 'fim »'
+      fields:
+        subject:
+          label: Assunto
+          separator: ', '
+        name:
+          separator: ', '
+        contact_form_label:
+          label: 'Formulário de contato'
+        created:
+          label: Criado
+        operations:
+          label: Operações
+      filters:
+        contact_form:
+          expose:
+            label: 'Formulário de contato'
+      title: 'Mensagens de contato'
+  page_1:
+    display_title: Página
+    display_options:
+      menu:
+        title: Listar
+        description: 'Mensagens de contato'

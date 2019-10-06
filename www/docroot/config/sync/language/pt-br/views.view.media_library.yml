@@ -1,0 +1,90 @@
+display:
+  default:
+    display_title: Principal
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Ascendente
+          sort_desc_label: Decrescente
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Tudo -'
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      fields:
+        media_bulk_form:
+          action_title: Ação
+      filters:
+        status:
+          expose:
+            label: 'Status de publicação'
+          group_info:
+            label: Publicado
+            group_items:
+              1:
+                title: Publicado
+              2:
+                title: 'Não publicado'
+        name:
+          expose:
+            label: Nome
+      sorts:
+        created:
+          expose:
+            label: 'Mais recente primeiro'
+      title: Mídia
+      empty:
+        area_text_custom:
+          content: 'Nenhuma mídia disponível.'
+  page:
+    display_title: Página
+    display_options:
+      menu:
+        title: Mídia
+  widget:
+    display_title: Widget
+    display_options:
+      filters:
+        name:
+          expose:
+            label: Nome
+      arguments:
+        bundle:
+          exception:
+            title: Tudo
+      header:
+        display_link_grid:
+          label: Grade
+        display_link_table:
+          label: Tabela
+  widget_table:
+    display_title: 'Widget (tabela)'
+    display_options:
+      fields:
+        thumbnail__target_id:
+          label: Miniatura
+        name:
+          label: Nome
+        uid:
+          label: Autor
+        changed:
+          label: Atualizado
+      filters:
+        name:
+          expose:
+            label: Nome
+      arguments:
+        bundle:
+          exception:
+            title: Tudo
+      header:
+        display_link_grid:
+          label: Grade
+        display_link_table:
+          label: Tabela

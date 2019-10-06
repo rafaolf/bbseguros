@@ -1,0 +1,4 @@
+label: 'Status de publicação'
+settings:
+  on_label: Habilitado
+  off_label: Desliga
