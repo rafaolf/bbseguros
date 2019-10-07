@@ -42,6 +42,7 @@ language: 8.7.7
 layout_builder: 8.7.7
 layout_builder_restrictions: 2.2.0
 layout_builder_st: 1.0.0-alpha1
+layout_builder_styles: 1.0.0-beta1
 layout_discovery: 8.7.7
 layout_library: 1.0.0-beta1
 libraries: 3.0.0-alpha1

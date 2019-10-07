@@ -1,0 +1,15 @@
+uuid: cce89219-fb41-40b0-9cf8-1cdad9447dcb
+langcode: pt-br
+status: true
+dependencies: {  }
+name: main_banner
+label: 'Main banner (2880x1200)'
+effects:
+  5ab22cb5-b557-411a-8443-766fa0986a4d:
+    uuid: 5ab22cb5-b557-411a-8443-766fa0986a4d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2880
+      height: 1200
+      anchor: center-center
