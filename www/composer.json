@@ -8,7 +8,9 @@
         "cweagans/composer-patches": "^1.6.0",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "drupal/config_split": "^1.4",
-        "drupal/admin_toolbar": "^1.27"
+        "drupal/admin_toolbar": "^1.27",
+        "drupal/ctools": "3.2",
+        "drupal/page_manager": "4.0-beta4"
     },
     "config": {
         "process-timeout": 0,
