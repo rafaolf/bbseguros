@@ -1,0 +1,5 @@
+third_party_settings:
+  contact_storage:
+    submit_text: Send
+label: 'Contact Form'
+message: 'Thanks for contacting us. We''ll get back to you as soon as we can!'

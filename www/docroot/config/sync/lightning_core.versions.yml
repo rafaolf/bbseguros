@@ -87,6 +87,7 @@ openapi_ui_swagger: 1.0.0-rc3
 options: 8.7.7
 page_cache: 8.7.7
 page_manager: 4.0.0-beta3
+page_manager_ui: 4.0.0-beta3
 panels: 4.4.0
 path: 8.7.7
 pathauto: 1.4.0

@@ -5,3 +5,4 @@ entity_blocks:
   - user
 _core:
   default_config_hash: 20jIYm8n8y8MdKKoXn79lK7WT2uBJwmenY3uwDywDNE
+langcode: pt-br

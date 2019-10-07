@@ -7,7 +7,7 @@ configurable:
 negotiation:
   language_content:
     enabled:
-      language-interface: 9
+      language-interface: 0
     method_weights:
       language-content-entity: -9
       language-url: -8
@@ -33,3 +33,4 @@ negotiation:
       language-selected: 12
 _core:
   default_config_hash: dqouFqVseNJNvEjsoYKxbinFOITuCxYhi4y2OTNQP_8
+langcode: pt-br

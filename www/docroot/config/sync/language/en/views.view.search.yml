@@ -1,0 +1,33 @@
+label: Search
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Search
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          text_input_required: 'Enter keywords to search the site.'
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      filters:
+        search_api_fulltext:
+          expose:
+            label: Keywords
+      empty:
+        area:
+          content:
+            value: 'Your search did not return any results.'
+      title: Search
+  page:
+    display_title: Page

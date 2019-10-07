@@ -1,0 +1,22 @@
+label: Editorial
+type_settings:
+  states:
+    archived:
+      label: Archived
+    draft:
+      label: Draft
+    published:
+      label: Published
+    review:
+      label: 'In review'
+  transitions:
+    archive:
+      label: Archive
+    archived_published:
+      label: 'Restore from archive'
+    create_new_draft:
+      label: 'Create New Draft'
+    publish:
+      label: Publish
+    review:
+      label: 'Send to review'

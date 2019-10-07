@@ -1,0 +1,4 @@
+label: 'Show in media library'
+settings:
+  on_label: 'Shown in media library'
+  off_label: 'Hidden in media library'

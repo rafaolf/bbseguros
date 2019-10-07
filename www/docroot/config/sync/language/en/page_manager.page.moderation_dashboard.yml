@@ -1,0 +1,4 @@
+label: 'Moderation Dashboard'
+parameters:
+  user:
+    label: User

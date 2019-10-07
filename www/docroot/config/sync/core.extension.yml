@@ -84,6 +84,7 @@ module:
   openapi_ui_swagger: 0
   options: 0
   page_manager: 0
+  page_manager_ui: 0
   panels: 0
   path: 0
   quickedit: 0
@@ -124,3 +125,4 @@ theme:
 profile: lightning
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
+langcode: pt-br
