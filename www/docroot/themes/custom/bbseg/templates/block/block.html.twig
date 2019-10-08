@@ -28,6 +28,7 @@
 {%
   set classes = [
     'block',
+    'block-' ~ configuration.label|clean_class,
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
   ]
