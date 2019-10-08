@@ -7,6 +7,7 @@ breakpoint: 8.7.7
 ckeditor: 8.7.7
 config: 8.7.7
 config_filter: 1.4.0
+config_ignore: 2.1.0
 config_split: 1.4.0
 config_translation: 8.7.7
 consumers: 1.9.0

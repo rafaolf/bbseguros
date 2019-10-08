@@ -10,7 +10,8 @@
         "drupal/config_split": "^1.4",
         "drupal/admin_toolbar": "^1.27",
         "drupal/ctools": "3.2",
-        "drupal/page_manager": "4.0-beta4"
+        "drupal/page_manager": "4.0-beta4",
+        "drupal/config_ignore": "^2.1"
     },
     "config": {
         "process-timeout": 0,
