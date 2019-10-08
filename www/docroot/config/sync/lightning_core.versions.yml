@@ -20,6 +20,8 @@ crop: 2.0.0-rc1
 ctools: 3.0.0
 datetime: 8.7.7
 dblog: 8.7.7
+devel: 2.1.0
+devel_generate: 2.1.0
 diff: 1.0.0-rc2
 dropzonejs: 2.0.0-alpha4
 editor: 8.7.7
