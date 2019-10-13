@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "63a5c16256f5a364fd494df774e23f86",
+    "content-hash": "a5b0119c1ca739c70c2a5f334d480b4a",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -1633,6 +1633,60 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/blazy",
                 "issues": "https://drupal.org/project/issues/blazy"
+            }
+        },
+        {
+            "name": "drupal/block_content_machine_name",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/block_content_machine_name.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/block_content_machine_name-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "490968573219fa35865b4cba65c3ab4ee3d27d63"
+            },
+            "require": {
+                "drupal/core": "*",
+                "drupal/machine_name_widget": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1510033385",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mitesh Patel",
+                    "homepage": "https://www.drupal.org/u/miteshmap",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "vbouchet",
+                    "homepage": "https://www.drupal.org/user/1671428"
+                }
+            ],
+            "description": "Creates machine name field for block_content and allows user to create default blocks with machine name.",
+            "homepage": "http://drupal.org/project/block_content_machine_name",
+            "support": {
+                "source": "http://cgit.drupalcode.org/block_content_machine_name",
+                "issues": "https://www.drupal.org/project/issues/block_content_machine_name"
             }
         },
         {
@@ -4232,6 +4286,57 @@
             "homepage": "https://www.drupal.org/project/lightning_workflow",
             "support": {
                 "source": "https://git.drupalcode.org/project/lightning_workflow"
+            }
+        },
+        {
+            "name": "drupal/machine_name_widget",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/machine_name_widget.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/machine_name_widget-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "1f0aa148682244823754b10b75cd4719295499e6"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1492559943",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "davidwbarratt",
+                    "homepage": "https://www.drupal.org/user/411675"
+                },
+                {
+                    "name": "sethcardoza",
+                    "homepage": "https://www.drupal.org/user/1024334"
+                }
+            ],
+            "description": "Provides a machine name widget.",
+            "homepage": "https://www.drupal.org/project/machine_name_widget",
+            "support": {
+                "source": "https://git.drupalcode.org/project/machine_name_widget"
             }
         },
         {
