@@ -12,6 +12,7 @@ dependencies:
   module:
     - image
     - link
+    - text
 _core:
   default_config_hash: 7HuWQt0xiE_ZyGWSUJQygFf3rmrFsGkcJyo5x09JHYg
 id: block_content.banner.default
@@ -29,7 +30,7 @@ content:
     type: image
     region: content
   field_link:
-    weight: 3
+    weight: 2
     label: hidden
     settings:
       trim_length: 80
@@ -41,20 +42,13 @@ content:
     type: link
     region: content
   field_summary:
-    weight: 2
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: text_default
     region: content
-  field_title:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
+  field_title: true
   langcode: true
   search_api_excerpt: true

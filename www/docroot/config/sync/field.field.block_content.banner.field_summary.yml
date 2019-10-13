@@ -1,12 +1,12 @@
-uuid: a196d47b-6be5-4f07-a43a-8421083773fa
+uuid: 80624644-8418-4715-a365-29ddab120354
 langcode: pt-br
 status: true
 dependencies:
   config:
     - block_content.type.banner
     - field.storage.block_content.field_summary
-_core:
-  default_config_hash: 3hTY19ne3F6BP_vE0K7mAxqpn6CGxz7fJNhg9ZeYB40
+  module:
+    - text
 id: block_content.banner.field_summary
 field_name: field_summary
 entity_type: block_content
@@ -18,4 +18,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string_long
+field_type: text_long

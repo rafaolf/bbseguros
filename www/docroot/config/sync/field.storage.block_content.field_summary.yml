@@ -1,18 +1,16 @@
-uuid: a971e7de-10f2-4b97-b45e-61e3c6ce981e
+uuid: ea9e9b4e-3593-4758-a0b2-4e1aa0b71e20
 langcode: pt-br
 status: true
 dependencies:
   module:
     - block_content
-_core:
-  default_config_hash: ovYZqtkQXD_nL-D5liqMQpocZ3xB7kwxBfnbCnErLHM
+    - text
 id: block_content.field_summary
 field_name: field_summary
 entity_type: block_content
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

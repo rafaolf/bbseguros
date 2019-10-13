@@ -1,6 +1,5 @@
 ignored_config_entities:
-  0: 'page_manager.page.*'
-  2: 'page_manager.page_variant.*'
+  - 'page_manager*'
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 langcode: pt-br
