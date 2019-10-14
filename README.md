@@ -18,8 +18,9 @@ which will create the following containers: appserver (Apache + PHP), database
 (MySQL) and Node (Node.js + Gulp).
 
 #### Importing the initial database with Lightning
+Download the latest database from our project's Google Drive and run
 ```
-$ lando db-import backups/first.sql
+$ lando db-import <filename>
 ```
 
 #### Installing Composer dependencies
