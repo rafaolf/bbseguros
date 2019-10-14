@@ -1,0 +1,25 @@
+uuid: f561a48d-395e-4910-a715-22303978a809
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - system.menu.secondary-menu
+  module:
+    - system
+  theme:
+    - bbseg
+id: secondarymenu
+theme: bbseg
+region: secondary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:secondary-menu'
+settings:
+  id: 'system_menu_block:secondary-menu'
+  label: 'Secondary menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
