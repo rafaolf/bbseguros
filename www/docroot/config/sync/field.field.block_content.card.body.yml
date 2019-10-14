@@ -1,0 +1,22 @@
+uuid: b18db4a7-fa72-4bf3-b45c-2f0c88532277
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.card.body
+field_name: body
+entity_type: block_content
+bundle: card
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

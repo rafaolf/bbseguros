@@ -1,0 +1,8 @@
+uuid: f546252c-7a15-4387-ac2f-450287d994b0
+langcode: pt-br
+status: true
+dependencies: {  }
+id: card
+label: Card
+revision: 1
+description: 'Create a descriptive card with a link for the content in case.'
