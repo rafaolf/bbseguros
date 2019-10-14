@@ -6,6 +6,7 @@ dependencies:
     - block_content.type.text
     - field.field.block_content.text.body
   module:
+    - machine_name_widget
     - text
 _core:
   default_config_hash: BNCuXJPvIp5LwqJERsg3FhYYAY6rDoTwx6Sdu-RC0sg
@@ -16,7 +17,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 0
+    weight: 3
     settings:
       rows: 9
       summary_rows: 3
@@ -25,7 +26,7 @@ content:
     region: content
   info:
     type: string_textfield
-    weight: -5
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -33,9 +34,34 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 4
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  machine_name:
+    type: machine_name
+    weight: 1
+    settings:
+      source:
+        - info
+        - widget
+        - 0
+        - value
+      exists: block_content_machine_name_existing_block_content_name
+      size: 60
+      placeholder: ''
+      label: ''
+      replace_pattern: ''
+      replace: ''
+    region: content
+    third_party_settings: {  }
+  template_suggestion:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden: {  }

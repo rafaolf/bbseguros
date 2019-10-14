@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.media_slideshow.field_slideshow_items
   module:
     - entity_browser
+    - machine_name_widget
 _core:
   default_config_hash: 3KEtclm2Znn53hmVYKmkafRaI1f0EuiAaBNaLH97BkQ
 id: block_content.media_slideshow.default
@@ -27,6 +28,7 @@ content:
       selection_mode: selection_append
       field_widget_display_settings:
         view_mode: thumbnail
+      field_widget_replace: false
     region: content
     third_party_settings: {  }
   info:
@@ -43,5 +45,30 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  machine_name:
+    type: machine_name
+    weight: -4
+    settings:
+      source:
+        - info
+        - widget
+        - 0
+        - value
+      exists: block_content_machine_name_existing_block_content_name
+      size: 60
+      placeholder: ''
+      label: ''
+      replace_pattern: ''
+      replace: ''
+    region: content
+    third_party_settings: {  }
+  template_suggestion:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden: {  }
