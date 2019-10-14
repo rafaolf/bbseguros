@@ -7,7 +7,7 @@ dependencies:
     - field.field.block_content.card.body
     - field.field.block_content.card.field_card_image
     - field.field.block_content.card.field_card_link
-    - image.style.large
+    - image.style.card
   module:
     - image
     - link
@@ -20,15 +20,15 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_card_image:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
-      image_style: large
+      image_style: card
       image_link: ''
     third_party_settings: {  }
     type: image

@@ -1,0 +1,15 @@
+uuid: b6ca8ef0-6b70-4e99-81b4-dd654f4c0ba8
+langcode: pt-br
+status: true
+dependencies: {  }
+name: card
+label: 'Card (270x430)'
+effects:
+  8b06140a-9068-4cd1-abbc-e3d6ddae5a6c:
+    uuid: 8b06140a-9068-4cd1-abbc-e3d6ddae5a6c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 270
+      height: 430
+      anchor: center-center
