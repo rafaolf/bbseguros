@@ -1,5 +1,6 @@
 ignored_config_entities:
-  - 'page_manager*'
+  0: 'page_manager*'
+  2: 'block*'
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 langcode: pt-br

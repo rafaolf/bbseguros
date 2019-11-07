@@ -2,7 +2,6 @@ module:
   admin_toolbar: 0
   bg_image_formatter: 0
   blazy: 0
-  block: 0
   block_content: 0
   block_content_machine_name: 0
   breakpoint: 0
@@ -88,7 +87,6 @@ module:
   openapi_ui_redoc: 0
   openapi_ui_swagger: 0
   options: 0
-  page_manager: 0
   page_manager_ui: 0
   panels: 0
   path: 0
