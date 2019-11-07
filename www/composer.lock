@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5b0119c1ca739c70c2a5f334d480b4a",
+    "content-hash": "6e7c1eeaad2a9157b424b72066c45c64",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -143,7 +143,7 @@
             "version": "v2.3.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fengyuanchen/cropper.git",
+                "url": "git@github.com:fengyuanchen/cropper.git",
                 "reference": "30c58b29ee21010e17e58ebab165fbd84285c685"
             },
             "dist": {
@@ -194,7 +194,7 @@
             "version": "v1.8.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kenwheeler/slick.git",
+                "url": "git@github.com:kenwheeler/slick.git",
                 "reference": "0f40c9d6a02a5c08b5f4dd80fdada3a854a59bee"
             },
             "dist": {
@@ -1749,6 +1749,56 @@
                 "docs": "https://www.drupal.org/docs/8/modules/claro",
                 "issues": "https://www.drupal.org/project/issues/claro"
             }
+        },
+        {
+            "name": "drupal/config_exclude",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_exclude.git",
+                "reference": "dbe433b9a7519fe64060b32ccf7d82b574d41b6d"
+            },
+            "require": {
+                "drupal/config_filter": "*",
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1512684184",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Marc van Gend",
+                    "homepage": "https://www.drupal.org/u/marcvangend",
+                    "email": "info@marcvangend.nl",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Filter for excluding modules and dependent configuration during config export",
+            "homepage": "https://www.drupal.org/project/config_exclude",
+            "keywords": [
+                "Configuration Management",
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_exclude",
+                "issues": "https://www.drupal.org/project/issues/config_exclude"
+            },
+            "time": "2017-12-07T21:31:19+00:00"
         },
         {
             "name": "drupal/config_filter",
@@ -9219,7 +9269,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/config_exclude": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
