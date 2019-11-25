@@ -1,0 +1,112 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+// =============================================================================
+// Encode symbols
+// =============================================================================
+
+@function url-encode($string) {
+	$map: (
+		"%": "%25",
+		"<": "%3C",
+		">": "%3E",
+		" ": "%20",
+		"!": "%21",
+		"*": "%2A",
+		"'": "%27",
+		'"': "%22",
+		"(": "%28",
+		")": "%29",
+		";": "%3B",
+		":": "%3A",
+		"@": "%40",
+		"&": "%26",
+		"=": "%3D",
+		"+": "%2B",
+		"$": "%24",
+		",": "%2C",
+		"/": "%2F",
+		"?": "%3F",
+		"#": "%23",
+		"[": "%5B",
+		"]": "%5D"
+	);
+
+	$new: $string;
+
+	@each $search, $replace in $map {
+		$new: str-replace($new, $search, $replace);
+	}
+
+	@return $new;
+}
+// =============================================================================
+// Format the SVG as a URL
+// =============================================================================
+@function inline-use-svg($string) {
+	@return url("data:image/svg+xml,#{url-encode($string)}");
+}
+
+/* ------------------------------------------------- */
+
+/* ==from https://codepen.io/jakob-e/pen/doMoML       */
+
+/* ------------------------------------------------- */
+
+@function svg-url($svg) {
+	//
+	//  Chunk up string in order to avoid
+	//  "stack level too deep" error
+	//
+	$encoded: "";
+	$slice: 2000;
+	$index: 0;
+	$loops: ceil(str-length($svg) / $slice);
+	@for $i from 1 through $loops {
+		$chunk: str-slice($svg, $index, $index + $slice - 1); //
+		//   Encode (may need a few extra replacements)
+		//
+		$chunk: str-replace($chunk, '"', "'");
+		$chunk: str-replace($chunk, "<", "%3C");
+		$chunk: str-replace($chunk, ">", "%3E");
+		$chunk: str-replace($chunk, "&", "%26");
+		$chunk: str-replace($chunk, "#", "%23");
+		$encoded: #{$encoded}#{$chunk};
+		$index: $index + $slice;
+	}
+	@return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+}
+
+/* custom mixin to replace a defined fill color with another one */
+
+@function svg-url-fillcolor($svg, $fill-to-replace, $new-fill) {
+	$replaced-svg: str-replace($svg, $fill-to-replace, $new-fill);
+	$replaced-svg-url: svg-url("#{$replaced-svg}");
+	@return $replaced-svg-url;
+}
+
+@function use-svg($key, $new-fill...) {
+	$length: length($new-fill);
+	$result: map-get($svg, $key);
+
+	@if $length == 1 {
+		$result: str-replace($result, "color", $new-fill);
+	} @else if $length > 1 {
+		@for $i from 1 through $length {
+			$result: str-replace($result, "color-" + $i, nth($new-fill, $i));
+		}
+	}
+
+	@return svg-url("#{$result}");
+}

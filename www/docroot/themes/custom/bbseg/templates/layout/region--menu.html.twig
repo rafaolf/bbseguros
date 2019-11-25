@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display the content region.
+ * Theme override to display a region.
  *
  * Available variables:
  * - content: The content for this region, typically blocks.
@@ -18,7 +18,11 @@
     'region-' ~ region|clean_class,
   ]
 %}
-
 {% if content %}
+	<div{{attributes.addClass(classes)}}>
+		<a href="#" class="close" menu-close>
+			<span class="sr-only">Close menu</span>
+		</a>
 		{{ content }}
+	</div>
 {% endif %}

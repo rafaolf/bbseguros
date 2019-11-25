@@ -2,17 +2,12 @@ global-styling:
   version: 1.x
   css:
     theme:
-      css/base/elements.css: {}
-      css/base/print.css: {}
-      css/base/typography.css: {}
-      css/base/variables.css: {}
-      css/components/components.css: {}
-      css/layout/layout.css: {}
-      css/states/states.css: {}
-      css/theme/theme.css: {}
+      css/main.css: {}
 
 global-scripts:
   js:
+    js/scrollify.js: {}
     js/global.js: {}
   dependencies:
     - core/jquery
+    - core/drupal

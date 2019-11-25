@@ -12,16 +12,19 @@ gulp.task('imagemin', function () {
   return gulp.src('./src/images/*')
     .pipe(imagemin({
       progressive: true,
-      svgoPlugins: [{removeViewBox: false}],
+      svgoPlugins: [{ removeViewBox: false }],
       use: [pngquant()]
     }))
     .pipe(gulp.dest('./images'));
 });
 
 gulp.task('sass', function () {
-  return gulp.src('./src/sass/**/*.scss')
+  return gulp.src('./src/sass/**/[^_]*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass({
+      includePaths: ['./node_modules/compass-mixins/lib'],
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 version'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./css'));
@@ -33,30 +36,17 @@ function isFixed(file) {
   return file.eslint != null && file.eslint.fixed;
 }
 
-gulp.task('eslint', function(){
+gulp.task('eslint', function () {
   return gulp.src(['./src/js/*.js'])
     .pipe(eslint({
-      "extends": "eslint:recommended",
       "env": {
         "browser": true
       },
-      "globals": [
-        "Drupal",
-        "drupalSettings",
-        "drupalTranslations",
-        "domready",
-        "jQuery",
-        "_",
-        "matchMedia",
-        "Backbone",
-        "Modernizr",
-        "CKEDITOR"
-     ],
-     "rules": {
+      "rules": {
         // Errors.
         "array-bracket-spacing": [2, "never"],
         "block-scoped-var": 2,
-        "brace-style": [2, "stroustrup", {"allowSingleLine": true}],
+        "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
         "comma-dangle": [2, "never"],
         "comma-spacing": 2,
         "comma-style": [2, "last"],
@@ -65,10 +55,10 @@ gulp.task('eslint', function(){
         "eol-last": 2,
         "eqeqeq": [2, "smart"],
         "guard-for-in": 2,
-        "indent": [2, 2, {"SwitchCase": 1}],
-        "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
+        "indent": [2, 2, { "SwitchCase": 1 }],
+        "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
         "linebreak-style": [2, "unix"],
-        "lines-around-comment": [2, {"beforeBlockComment": true, "afterBlockComment": false}],
+        "lines-around-comment": [2, { "beforeBlockComment": true, "afterBlockComment": false }],
         "new-parens": 2,
         "no-array-constructor": 2,
         "no-caller": 2,
@@ -103,16 +93,16 @@ gulp.task('eslint', function(){
         "no-undef-init": 2,
         "no-undefined": 2,
         "no-unused-expressions": 2,
-        "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+        "no-unused-vars": [2, { "vars": "all", "args": "none" }],
         "no-with": 2,
         "object-curly-spacing": [2, "never"],
         "one-var": [2, "never"],
         "quote-props": [2, "consistent-as-needed"],
         "semi": [2, "always"],
-        "semi-spacing": [2, {"before": false, "after": true}],
+        "semi-spacing": [2, { "before": false, "after": true }],
         "space-after-keywords": [2, "always"],
         "space-before-blocks": [2, "always"],
-        "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+        "space-before-function-paren": [2, { "anonymous": "always", "named": "never" }],
         "space-in-parens": [2, "never"],
         "space-infix-ops": 2,
         "space-return-throw-case": 2,
@@ -125,24 +115,24 @@ gulp.task('eslint', function(){
         "valid-jsdoc": [1, {
           "prefer": {
             "returns": "return",
-              "property": "prop"
+            "property": "prop"
           },
-        "requireReturn": false
+          "requireReturn": false
         }]
-    },
-    fix: true,
-  }))
-  .pipe(eslint.format())
-  // if fixed, write the file to dest
-  .pipe(gulpIf(isFixed, gulp.dest('./js/')));
+      },
+      fix: true,
+    }))
+    .pipe(eslint.format())
+    // if fixed, write the file to dest
+    .pipe(gulpIf(isFixed, gulp.dest('./js/')));
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', function () {
   livereload.listen();
 
   gulp.watch('./src/sass/**/*.scss', gulp.series('sass'));
   gulp.watch('./src/js/**/*.js', gulp.series('eslint'));
-  gulp.watch(['./css/style.css', './**/*.html.twig', './js/*.js'], function (files){
-      livereload.changed(files)
+  gulp.watch(['./css/main.css', './**/*.html.twig', './js/*.js'], function (files) {
+    livereload.changed(files)
   });
 });

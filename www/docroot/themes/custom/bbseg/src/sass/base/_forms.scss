@@ -1,0 +1,46 @@
+.default-input {
+	display: block;
+	font-size: rem(14px);
+	
+	@include input-placeholder {
+		color: red;
+
+	}
+}
+
+.default-checkbox {
+	display: block;
+}
+
+.default-label {
+	display: block;
+}
+
+.default-error-msg {
+	display: block;
+}
+
+.main-wrapper {
+	input,
+	select,
+	textarea {
+		@extend .default-input;
+	}
+
+	input[type="submit"] {
+		@extend .btn;
+	}
+
+	label {
+		@extend .default-label;
+	}
+
+	.form-group {
+		display: block;
+		position: relative;
+
+		.error {
+			@extend .default-error-msg;
+		}
+	}
+}

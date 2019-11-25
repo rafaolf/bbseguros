@@ -1,0 +1,162 @@
+[class*="block-content--banner-"] {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	min-height: rem(540px);
+	height: 50vh;
+
+	@media #{$max-sm} {
+		min-height: rem(284px);
+		height: 60vh;
+	}
+
+	.field {
+		&--name-field-summary {
+			position: relative;
+			left: rem(140px);
+			max-width: rem(550px);
+
+			@media #{$max-sm} {
+				max-width: rem(160px);
+				left: $padding;
+			}
+
+			p {
+				line-height: 0.85;
+				font-family: $font-1;
+				font-size: rem(138px);
+				color: $white;
+				text-transform: uppercase;
+
+				@media #{$max-sm} {
+					line-height: 1.2;
+					font-size: rem(42px);
+				}
+			}
+		}
+
+		&--name-field-banner-image {
+			img {
+				@extend .object-cover;
+
+				z-index: -1;
+				height: 100% !important;
+			}
+		}
+
+		&--name-field-title {
+			text-transform: uppercase;
+			font-size: rem(30px);
+			line-height: 1.2;
+			font-weight: 700;
+
+			@media #{$max-sm} {
+				font-size: rem(12px);
+			}
+		}
+
+		&--name-field-link {
+			font-size: rem(10px);
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+	}
+
+	.box-links {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		background: $color-1;
+		padding: 0 rem(10px);
+		width: rem(820px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+		height: rem(80px);
+		line-height: 1.5;
+
+		@include border-radius(rem(40px));
+		@include transform(translate(-50%, -50%));
+
+		@media #{$max-sm} {
+			width: calc(100% - #{$padding * 2});
+			height: rem(42px);
+
+			@include border-radius(rem(22px));
+		}
+
+		a {
+			color: $color-0;
+		}
+	}
+
+	&.block-content--banner-homepage {
+		height: rem(710px);
+
+		@media #{$max-sm} {
+			height: rem(360px);
+		}
+
+		.field {
+			&--name-field-summary {
+				position: absolute;
+				top: rem(170px);
+
+				@media #{$max-sm} {
+					top: rem(100px);
+				}
+			}
+		}
+
+		.box-links {
+			top: 100%;
+
+			@media #{$max-sm} {
+				background: $color-0;
+				color: $color-1;
+			}
+
+			a {
+				@media #{$max-sm} {
+					color: $color-1;
+				}
+			}
+		}
+	}
+
+	&.block-content--banner-seguros {
+		.field {
+			&--name-field-summary {
+				max-width: rem(330px);
+
+				@media #{$max-sm} {
+					max-width: rem(200px);
+				}
+			}
+		}
+	}
+
+	&.block-content--banner-capitalizacao {
+		.field {
+			&--name-field-summary {
+				max-width: rem(400px);
+
+				@media #{$max-sm} {
+					max-width: rem(200px);
+				}
+			}
+		}
+	}
+
+	.block-content--banner-dental {
+	}
+
+	.block-content--banner-homepage {
+	}
+
+	.block-content--banner-previdencia {
+	}
+}

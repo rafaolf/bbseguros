@@ -14,18 +14,11 @@ libraries:
   - bbseg/global-scripts
 
 regions:
-  secondary_menu: Secondary menu
-  header_first: Header first
   header: Header
-  header_second: Header second
-  primary_menu: Primary menu
+  menu: Menu
   highlighted: Highlighted
   breadcrumb: Breadcrumb
   content: Content
-  sidebar_first: Sidebar first
-  sidebar_second: Sidebar second
-  footer_first: Footer left
   footer: Footer
-  footer_second: Footer right
   page_top: Page top
   page_bottom: Page bottom
