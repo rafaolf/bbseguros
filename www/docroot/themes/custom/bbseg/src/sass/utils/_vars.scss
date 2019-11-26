@@ -38,8 +38,10 @@ $color-hard: #ea6753;
 
 
 /*** FONTs ***/
-$font-0: "Open Sans", sans-serif;
-$font-1: "Bebas Neue", sans-serif;
+$font-0: "Open Sans",
+sans-serif;
+$font-1: "Bebas Neue",
+sans-serif;
 
 $font-size: 16px;
 
@@ -49,8 +51,10 @@ $ease-1: all 0.5s ease-in-out;
 
 $ease-header: transform 0.5s ease-in-out;
 
-$ease-transform-0: transform 0.5s ease-in-out, visibility 0.1s linear 1s;
-$ease-transform-1: transform 0.5s ease-in-out, visibility 0.1s linear 0s;
+$ease-transform-0: transform 0.5s ease-in-out,
+visibility 0.1s linear 1s;
+$ease-transform-1: transform 0.5s ease-in-out,
+visibility 0.1s linear 0s;
 
 /*** CONFIGs ***/
 $img-path: "../img/";

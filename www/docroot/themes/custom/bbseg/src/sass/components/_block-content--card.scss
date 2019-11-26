@@ -1,51 +1,51 @@
 .block-content--text-principal,
 [class*="block-content--card"] {
-	@extend .container;
+  @extend .container;
 
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	flex-direction: column;
-	min-height: rem(540px);
-	height: 50vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  min-height: rem(540px);
+  height: 50vh;
 
-	@media #{$max-sm} {
-		align-items: center;
-		min-height: rem(284px);
-		height: 40vh;
-	}
+  @media #{$max-sm} {
+    align-items: center;
+    min-height: rem(284px);
+    height: 40vh;
+  }
 
-	p {
-		display: block;
-		max-width: rem(370px);
-		font-size: rem(22px);
-		margin-bottom: rem(20px);
+  p {
+    display: block;
+    max-width: rem(370px);
+    font-size: rem(22px);
+    margin-bottom: rem(20px);
 
-		@media #{$max-sm} {
-			text-align: center;
-			font-size: rem(14px);
-		}
-	}
+    @media #{$max-sm} {
+      text-align: center;
+      font-size: rem(14px);
+    }
+  }
 
-	.field--name-field-card-link {
-		a {
-			@include btn;
+  .field--name-field-card-link {
+    a {
+      @include btn;
 
-			@media #{$max-sm} {
-				@include btn-white;
-			}
-		}
-	}
+      @media #{$max-sm} {
+        @include btn-white;
+      }
+    }
+  }
 }
 
 .block-content--text-principal {
-	height: rem(370px);
+  height: rem(370px);
 
-	@media #{$max-sm} {
-		height: rem(208px);
-	}
+  @media #{$max-sm} {
+    height: rem(208px);
+  }
 
-	p {
-		max-width: rem(530px);
-	}
+  p {
+    max-width: rem(530px);
+  }
 }

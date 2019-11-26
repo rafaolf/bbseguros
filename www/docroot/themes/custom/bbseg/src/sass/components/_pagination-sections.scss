@@ -1,30 +1,30 @@
 .pagination-sections {
-	position: fixed;
-	top: rem(310px);
-    left: $padding;
-    z-index: 9;
+  position: fixed;
+  top: rem(310px);
+  left: $padding;
+  z-index: 9;
 
-    @media #{$max-sm} {
-        display: none;
+  @media #{$max-sm} {
+    display: none;
+  }
+
+  li {
+    display: block;
+    margin-bottom: rem(15px);
+
+    a {
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: transparent;
+      border: 1px solid $white;
+
+      @include border-radius(100%);
+      @include transition($ease-0);
+
+      &.active {
+        background: $white;
+      }
     }
-
-	li {
-        display: block;
-        margin-bottom: rem(15px);
-
-		a {
-			display: block;
-			width: 8px;
-			height: 8px;
-			background: transparent;
-			border: 1px solid $white;
-
-			@include border-radius(100%);
-			@include transition($ease-0);
-
-			&.active {
-				background: $white;
-			}
-		}
-	}
+  }
 }

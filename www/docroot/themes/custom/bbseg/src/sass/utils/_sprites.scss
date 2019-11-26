@@ -61,7 +61,7 @@ $sprite: (1px, 1px, '/Content/img/sprite.png', $sprite-sprites, );
 @mixin sprite-position($sprite) {
   $sprite-offset-x: nth($sprite, 3);
   $sprite-offset-y: nth($sprite, 4);
-  background-position: $sprite-offset-x  $sprite-offset-y;
+  background-position: $sprite-offset-x $sprite-offset-y;
 }
 
 @mixin sprite-image($sprite) {
@@ -83,6 +83,7 @@ $sprite: (1px, 1px, '/Content/img/sprite.png', $sprite-sprites, );
 @mixin sprites($sprites) {
   @each $sprite in $sprites {
     $sprite-name: nth($sprite, 10);
+
     .#{$sprite-name} {
       @include sprite($sprite);
     }

@@ -1,235 +1,236 @@
 .main-footer {
-	background: $color-0;
-	color: $white;
+  background: $color-0;
+  color: $white;
 
-	.container {
-		display: flex;
-		justify-content: space-between;
-		padding: rem(50px) $padding rem(60px);
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(50px) $padding rem(60px);
 
-		@media #{$max-sm} {
-			flex-direction: column;
-			padding: 0 0 rem(30px);
-		}
+    @media #{$max-sm} {
+      flex-direction: column;
+      padding: 0 0 rem(30px);
+    }
 
-		.col {
-			flex-grow: 1;
-			flex-basis: 0;
+    .col {
+      flex-grow: 1;
+      flex-basis: 0;
 
-			@media #{$max-sm} {
-				width: 100%;
-			}
+      @media #{$max-sm} {
+        width: 100%;
+      }
 
-			.text-tel {
-				text-align: center;
-				font-size: rem(18px);
+      .text-tel {
+        text-align: center;
+        font-size: rem(18px);
 
-				@media #{$max-sm} {
-					font-size: rem(10px);
-					font-weight: bold;
-				}
+        @media #{$max-sm} {
+          font-size: rem(10px);
+          font-weight: bold;
+        }
 
-				.big {
-					font-size: rem(40px);
-					line-height: 1;
-					font-weight: bold;
-					color: $color-1;
+        .big {
+          font-size: rem(40px);
+          line-height: 1;
+          font-weight: bold;
+          color: $color-1;
 
-					@media #{$max-sm} {
-						font-size: rem(20px);
-					}
-				}
+          @media #{$max-sm} {
+            font-size: rem(20px);
+          }
+        }
 
-				.small {
-					font-size: rem(16px);
+        .small {
+          font-size: rem(16px);
 
-					@media #{$max-sm} {
-						font-size: rem(8px);
-					}
-				}
-			}
+          @media #{$max-sm} {
+            font-size: rem(8px);
+          }
+        }
+      }
 
-			&.col-logo {
-				@media #{$max-sm} {
-					display: flex;
-					justify-content: space-between;
-					padding: $padding;
-					border-bottom: 1px solid rgba($white, 0.3);
-				}
+      &.col-logo {
+        @media #{$max-sm} {
+          display: flex;
+          justify-content: space-between;
+          padding: $padding;
+          border-bottom: 1px solid rgba($white, 0.3);
+        }
 
-				.site-logo {
-					display: block;
-					width: rem(140px);
+        .site-logo {
+          display: block;
+          width: rem(140px);
 
-					@media #{$max-sm} {
-						width: rem(75px);
-					}
+          @media #{$max-sm} {
+            width: rem(75px);
+          }
 
-					img {
-						width: 100%;
-					}
-				}
+          img {
+            width: 100%;
+          }
+        }
 
-				.text-tel {
-					display: none;
+        .text-tel {
+          display: none;
 
-					@media #{$max-sm} {
-						display: block;
-					}
-				}
-			}
+          @media #{$max-sm} {
+            display: block;
+          }
+        }
+      }
 
-			&.col-menu {
-				ul {
-					display: block;
-					margin-bottom: rem(20px);
+      &.col-menu {
+        ul {
+          display: block;
+          margin-bottom: rem(20px);
 
-					@media #{$max-sm} {
-						margin-bottom: -1px;
-						border-bottom: 1px solid rgba($white, 0.3);
-					}
+          @media #{$max-sm} {
+            margin-bottom: -1px;
+            border-bottom: 1px solid rgba($white, 0.3);
+          }
 
-					&:last-child {
-						margin-bottom: 0;
-					}
+          &:last-child {
+            margin-bottom: 0;
+          }
 
-					li {
-						a,
-						strong {
-							display: flex;
-							align-items: center;
-							font-size: rem(24px);
-							color: $white;
-							margin-bottom: rem(8px);
+          li {
 
-							@media #{$max-sm} {
-								font-size: rem(14px);
-								padding: rem(4px) $padding;
-							}
+            a,
+            strong {
+              display: flex;
+              align-items: center;
+              font-size: rem(24px);
+              color: $white;
+              margin-bottom: rem(8px);
 
-							&:hover {
-								opacity: 0.8;
-							}
-						}
+              @media #{$max-sm} {
+                font-size: rem(14px);
+                padding: rem(4px) $padding;
+              }
 
-						strong {
-							@media #{$max-sm} {
-                                padding: rem(10px) $padding rem(8px);
+              &:hover {
+                opacity: 0.8;
+              }
+            }
 
-								&:after {
-									content: "";
-									display: block;
-									width: rem(12px);
-									height: rem(12px);
-									margin-left: auto;
-									background: use-svg(arrow, $white) no-repeat center center transparent;
-									background-size: contain;
+            strong {
+              @media #{$max-sm} {
+                padding: rem(10px) $padding rem(8px);
 
-									@include rotate(90deg);
-								}
-							}
-						}
+                &:after {
+                  content: "";
+                  display: block;
+                  width: rem(12px);
+                  height: rem(12px);
+                  margin-left: auto;
+                  background: use-svg(arrow, $white) no-repeat center center transparent;
+                  background-size: contain;
 
-						&.active {
-							strong {
-								&:after {
-									@include rotate(-90deg);
-								}
-							}
-						}
-					}
-				}
-			}
+                  @include rotate(90deg);
+                }
+              }
+            }
 
-			&.col-infos {
-				display: flex;
-				align-items: center;
-				flex-direction: column;
+            &.active {
+              strong {
+                &:after {
+                  @include rotate(-90deg);
+                }
+              }
+            }
+          }
+        }
+      }
 
-				.text-tel {
-					display: block;
+      &.col-infos {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
-					@media #{$max-sm} {
-						display: none;
-					}
-				}
+        .text-tel {
+          display: block;
 
-				ul {
-					display: flex;
-					justify-content: space-around;
-					margin-top: rem(40px);
+          @media #{$max-sm} {
+            display: none;
+          }
+        }
 
-					@media #{$max-sm} {
-						margin-top: rem(20px);
-					}
+        ul {
+          display: flex;
+          justify-content: space-around;
+          margin-top: rem(40px);
 
-					li {
-						a {
-							display: block;
-							width: rem(44px);
-							height: rem(44px);
-							margin: 0 rem(10px);
-							background: no-repeat center center;
-							background-size: contain;
+          @media #{$max-sm} {
+            margin-top: rem(20px);
+          }
 
-							@media #{$max-sm} {
-								width: rem(32px);
-								height: rem(32px);
-							}
+          li {
+            a {
+              display: block;
+              width: rem(44px);
+              height: rem(44px);
+              margin: 0 rem(10px);
+              background: no-repeat center center;
+              background-size: contain;
 
-							&:hover {
-								opacity: 0.8;
-							}
+              @media #{$max-sm} {
+                width: rem(32px);
+                height: rem(32px);
+              }
 
-							&.facebook {
-								background-image: use-svg(facebook, $white);
-							}
+              &:hover {
+                opacity: 0.8;
+              }
 
-							&.twitter {
-								background-image: use-svg(twitter, $white);
-							}
+              &.facebook {
+                background-image: use-svg(facebook, $white);
+              }
 
-							&.instagram {
-								background-image: use-svg(instagram, $white);
-							}
+              &.twitter {
+                background-image: use-svg(twitter, $white);
+              }
 
-							&.youtube {
-								background-image: use-svg(youtube, $white);
-							}
-						}
-					}
-				}
+              &.instagram {
+                background-image: use-svg(instagram, $white);
+              }
 
-				.socials {
-					@media #{$max-sm} {
-						order: 2;
-					}
-				}
+              &.youtube {
+                background-image: use-svg(youtube, $white);
+              }
+            }
+          }
+        }
 
-				.apps {
-					@media #{$max-sm} {
-						order: 1;
-					}
+        .socials {
+          @media #{$max-sm} {
+            order: 2;
+          }
+        }
 
-					ul {
-						li {
-							a {
-								width: rem(130px);
-								height: rem(40px);
-								margin: 0 rem(6px);
+        .apps {
+          @media #{$max-sm} {
+            order: 1;
+          }
 
-								&.google-play {
-									background-image: use-svg(google-play);
-								}
+          ul {
+            li {
+              a {
+                width: rem(130px);
+                height: rem(40px);
+                margin: 0 rem(6px);
 
-								&.app-store {
-									background-image: use-svg(app-store);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+                &.google-play {
+                  background-image: use-svg(google-play);
+                }
+
+                &.app-store {
+                  background-image: use-svg(app-store);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
