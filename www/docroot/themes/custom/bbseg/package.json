@@ -9,9 +9,11 @@
   "author": "Rafael Franco de Oliveira",
   "license": "ISC",
   "devDependencies": {
+    "compass-mixins": "^0.12.10",
     "package.json": "^2.0.1"
   },
   "dependencies": {
+    "eslint-config-airbnb": "^18.0.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
     "gulp-eslint": "^6.0.0",

@@ -1,0 +1,94 @@
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+@function rem($size) {
+  @return parseInt($size) / parseInt($font-size) * 1rem;
+}
+
+@function v-url($url) {
+  $v-url: url($url + "?v=" + $version);
+
+  @return $v-url;
+}
+
+@mixin ellipsis-multiline($line-height, $lines: 2, $set-height: true) {
+  @if $set-height==true {
+    height: rem($line-height * $lines);
+  }
+
+  @else {
+    max-height: rem($line-height * $lines);
+  }
+
+  display: block;
+  overflow: hidden;
+  line-height: rem($line-height);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  text-overflow: -o-ellipsis-lastline;
+}
+
+@mixin use-sprite($sprite, $width: true) {
+  $url: #{nth($sprite, 9)};
+  $factor: 1px;
+
+  @if $width !=true {
+    $factor: ($width + $sprite-padding) * 100 / nth($sprite, 5) / 100;
+  }
+
+  display: inline-block;
+  vertical-align: middle;
+  width: parseInt(nth($sprite, 5) + $sprite-padding) * $factor;
+  height: parseInt(nth($sprite, 6) + $sprite-padding) * $factor;
+  background-position: (parseInt(nth($sprite, 3)) * $factor) (parseInt(nth($sprite, 4)) * $factor);
+  background-size: (parseInt(nth($sprite, 7)) * $factor) auto;
+  background-image: v-url($url);
+  background-repeat: no-repeat;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (eot: "?",
+      svg: "#"+ str-replace($name, " ", "_"));
+
+  $formats: (otf: "opentype",
+      ttf: "truetype"
+    );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote(#{$font-path}$path + "." + $extmod)) format(quote($format)),
+    comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    src: local(quote($name));
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+    font-display: swap;
+  }
+}
+
+// =============================================================================
+// SVG Icons
+// =============================================================================
+
+@mixin svg-icons ($svg-name, $color:black, $svg-size: 30px) {
+  background-image: svg-url-fillcolor($svg-name, "currentColor", $color);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: $svg-size;
+  width: $svg-size;
+}

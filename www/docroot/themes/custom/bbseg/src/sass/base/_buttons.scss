@@ -1,0 +1,52 @@
+@mixin btn($background: $color-0, $color: $color-1, $border: $color-0) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #193db7;
+  width: rem(250px);
+  padding: 0 rem(10px);
+  font-size: rem(14px);
+  height: rem(44px);
+  text-transform: uppercase;
+  font-weight: bold;
+
+  background: $background;
+  color: $color;
+  border: 1px solid $border;
+
+  @include border-radius(rem(25px));
+}
+
+@mixin btn-white {
+  @include btn($white, $color-0);
+}
+
+.btn {
+  @include btn;
+}
+
+.btn-white {
+  @include btn-white;
+}
+
+.button-next {
+  position: fixed;
+  bottom: rem(50px);
+  left: 50%;
+  width: rem(44px);
+  height: rem(44px);
+  z-index: 9;
+  cursor: pointer;
+  background: use-svg(arrow-light, $color-0) no-repeat center center;
+  background-size: contain;
+
+  @include transform(translateX(-50%));
+
+  @media #{$max-sm} {
+    background: use-svg(arrow, $color-0) no-repeat center center;
+    bottom: rem(20px);
+    background-size: rem(12px) auto;
+
+    @include transform(translateX(-50%) rotate(90deg));
+  }
+}

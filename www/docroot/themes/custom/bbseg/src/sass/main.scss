@@ -1,0 +1,30 @@
+/* IMPORT COMPASS & CORE ANIMATIONS */
+@import "compass";
+@import "animation/core";
+
+/* IMPORT UTILITIES */
+@import "utils/_vars.scss";
+@import "utils/sprites";
+@import "utils/functions";
+@import "utils/mixins";
+@import "utils/svg-assets";
+
+/* IMPORT BASE */
+@import "base/fonts";
+@import "base/reset";
+@import "base/utilities";
+@import "base/buttons";
+@import "base/forms";
+
+/* IMPORT LAYOUT */
+@import "layout/header";
+@import "layout/content";
+@import "layout/footer";
+
+/* IMPORT COMPONENTS */
+@import "components/pagination-sections";
+@import "components/block-content--banner";
+@import "components/block-content--card";
+
+/* IMPORT PAGES */
+@import "pages/home";
