@@ -3,7 +3,7 @@
   position: absolute;
   width: 100%;
 
-  @include transition($ease-1);
+  @include transition(opacity .3s ease-in-out, transform .3s ease-in-out);
 
   @media #{$min-md} {
     opacity: 1;
@@ -18,7 +18,7 @@
     padding-top: rem(25px);
 
     @include transform(translateY(0));
-    @include transition($ease-1);
+    @include transition(opacity .3s ease-in-out, transform .3s ease-in-out);
 
     @media #{$max-sm} {
       width: rem(60px);
@@ -61,7 +61,7 @@
     justify-content: flex-end;
     overflow: auto;
 
-    @include transition($ease-1);
+    @include transition(opacity .3s ease-in-out, transform .3s ease-in-out);
 
     @media #{$max-sm} {
       position: fixed;

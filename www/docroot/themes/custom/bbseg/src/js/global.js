@@ -1,5 +1,4 @@
-(function ($, Drupal) {
-
+(function ($) {
     function isMobile() {
       return $(window).width <= 991;
     }
@@ -128,122 +127,236 @@
       }
     }
   
-    // function scrollToElement(el) {
-    //     var $el = $(el);
+    /***** ALL SCROLLS FUNCTIONS ******/
   
-    //     $('html, body').animate({
-    //         scrollTop: $el.offset().top
-    //     }, 500);
-    // }
+    function preventDefault(e) {
+      e = e || window.event;
+      if (e.preventDefault)
+        e.preventDefault();
+      e.returnValue = false;
+    }
   
-    function initScrollify() {
-      var parent = $('.block-region-content');
-      var banner = $('.block-content--banner-homepage');
-      var card = $('.block-content--text-principal');
-      var section = $('<section id="section-home" class="section"></section>');
-      var name = null;
-      var className = null;
+    function preventDefaultForScrollKeys(e) {
+      // left: 37, up: 38, right: 39, down: 40,
+      // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+      var keys = {
+        37: 1,
+        38: 1,
+        39: 1,
+        40: 1
+      };
+      if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+      }
+    }
   
-      section.append(banner);
-      section.append(card);
+    function disableScroll() {
+      if (window.addEventListener) // older FF
+        window.addEventListener('DOMMouseScroll', preventDefault, false);
+      document.addEventListener('wheel', preventDefault, {
+        passive: false
+      }); // Disable scrolling in Chrome
+      window.onwheel = preventDefault; // modern standard
+      window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+      window.ontouchmove = preventDefault; // mobile
+      document.onkeydown = preventDefaultForScrollKeys;
+    }
   
-      section.insertBefore(parent);
+    function enableScroll() {
+      if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+      document.removeEventListener('wheel', preventDefault, {
+        passive: false
+      }); // Enable scrolling in Chrome
+      window.onmousewheel = document.onmousewheel = null;
+      window.onwheel = null;
+      window.ontouchmove = null;
+      document.onkeydown = null;
+    }
   
-      parent.find('> *').each(function () {
-        className = $(this).attr('class');
+    var scroll = {
+      sections: null,
+      scrollDisabled: false,
   
-        if ($(this).attr('class').indexOf('block-content--card') >= 0) {
-          name = className.substr(className.indexOf('block-content--card'), className.indexOf(' ')).replace('block-content--card-', '');
-          section = $('<section id="section-' + name + '" class="section"></section>');
-          section.append($(this));
-        } else {
-          section.append($(this));
-          parent.append(section);
-        }
-      });
+      init: function () {
+        var othis = this;
   
-      parent.find('> *').unwrap();
+        othis.createSections();
+        othis.createControllers();
   
-      $.scrollify({
-        section: ".section",
-        before: function (i, panels) {
+        othis.addEventListeners();
+      },
   
-          var ref = panels[i].attr("id");
-          var header = $('.main-header');
+      addEventListeners: function () {
+        var othis = this;
   
-          if (ref.indexOf('home') >= 0) {
-            header.removeClass('menu-fixed');
-          } else if (!header.hasClass('menu-fixed')) {
-            header.hide().addClass('menu-fixed');
+        othis.setActive();
   
-            setTimeout(function () {
-              header.show();
-            }, 300);
-          }
+        othis.lastScrollTop = 0;
+        othis.showHideLastScrollTop = 0;
   
-          $(".section").removeClass("section-active");
-          $(".section#" + ref).addClass("section-active");
-          $(".pagination-sections .active").removeClass("active");
-          $(".pagination-sections").find("a[href=\"#" + ref + "\"]").addClass("active");
-        },
+        $(window).scroll(function (e) {
+          othis.setActive();
+        });
+      },
   
-        afterRender: function () {
-          var pagination = "<ul class=\"pagination-sections\">";
-          var btnNext = $('<div class="button-next"><span class="sr-only">Next</span></div>');
-          var activeClass = "";
+      setActive: function (toActive) {
+        var othis = this;
+        var newActive = toActive != undefined ? toActive : othis.searchActive();
+        othis.showHideMenu();
   
-          $(".section").each(function (i) {
-            activeClass = "";
-            if (i === $.scrollify.currentIndex()) {
-              activeClass = "active";
+        if (othis.active == undefined || othis.active.attr('id') != newActive.attr('id')) {
+          if (!othis.scrollDisabled) {
+            disableScroll();
+  
+            othis.scrollDisabled = true;
+            othis.active = newActive;
+  
+            if (othis.active.attr('id').indexOf('home') >= 0) {
+              $('.main-header').removeClass('menu-fixed');
+              $('.pagination-sections').removeClass('pagination-fixed');
+            } else {
+              $('.main-header').addClass('menu-fixed');
+              $('.pagination-sections').addClass('pagination-fixed');
             }
-            pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("id") + "\"><span class=\"sr-only\">" + $(this).attr("id") + "</span></a></li>";
-          });
   
-          pagination += "</ul>";
+            if (othis.active.attr('id').indexOf('footer') >= 0) {
+              $('.button-next').fadeOut();
+            } else {
+              $('.button-next').fadeIn();
+            }
   
-          $.scrollify.next()
+            $(".pagination-sections a").removeClass('active');
+            var paginationActive = $('.pagination-sections a[href="#' + othis.active.attr('id') + '"]');
   
-          $(".main-wrapper").append(pagination);
-          $(".main-wrapper").append(btnNext);
+            if (paginationActive.length > 0)
+              paginationActive.addClass('active');
   
-          $(".button-next").on("click", $.scrollify.next);
-          $(".pagination-sections a").on("click", $.scrollify.move);
+            $('html, body').stop().animate({
+              scrollTop: othis.active.offset().top
+            }, 1000, function () {
+              othis.scrollDisabled = false;
+              enableScroll();
+  
+              othis.sections.removeClass('section-active');
+              othis.active.addClass('section-active');
+  
+              othis.lastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop(); // For Mobile or negative scrolling
+            });
+          }
         }
-      });
-    }
+      },
   
-    function showHideMenu() {
-      var lastScrollTop = 0;
+      searchActive: function () {
+        var othis = this;
+        var active;
+        var st = $(window).scrollTop();
   
-      $(window).scroll(function (event) {
-        var st = $(this).scrollTop();
+        $(othis.sections.get().reverse()).each(function () {
+          var $el = $(this);
   
-        if (st > lastScrollTop) {
-          $('.main-header').addClass('hide-menu');
-        } else {
+          if (active != undefined)
+            return;
+          if (st > othis.lastScrollTop) {
+            if ($el.offset().top - ($(window).scrollTop() + $(window).height()) < 0)
+              active = $el;
+          } else {
+            if ($el.offset().top - $(window).scrollTop() <= 0)
+              active = $el;
+          }
+        })
+  
+        return active;
+      },
+  
+      showHideMenu() {
+        var othis = this;
+        var st = $(window).scrollTop() - 2;
+  
+        if (st < othis.showHideLastScrollTop) {
           $('.main-header').removeClass('hide-menu');
+        } else {
+          $('.main-header').addClass('hide-menu');
         }
   
-        lastScrollTop = st <= 0 ? 0 : st;
-      });
-    }
+        othis.showHideLastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop();
+      },
   
+      createSections: function () {
+        var othis = this;
+  
+        var parent = $('.block-region-content');
+        var banner = $('.block-content--banner-homepage');
+        var card = $('.block-content--text-principal');
+        var section = $('<section id="section-home" class="section"></section>');
+        var name = null;
+        var className = null;
+  
+        section.append(banner);
+        section.append(card);
+  
+        section.insertBefore(parent);
+  
+        parent.find('> *').each(function () {
+          className = $(this).attr('class');
+  
+          if ($(this).attr('class').indexOf('block-content--card') >= 0) {
+            name = className.substr(className.indexOf('block-content--card'), className.indexOf(' ')).replace('block-content--card-', '');
+            section = $('<section id="section-' + name + '" class="section"></section>');
+            section.append($(this));
+          } else {
+            section.append($(this));
+            parent.append(section);
+          }
+        });
+  
+        parent.find('> *').unwrap();
+  
+        othis.sections = $('#fullpage .section');
+      },
+  
+      createControllers: function () {
+        var pagination = "<ul class=\"pagination-sections\">";
+        var btnNext = $('<div class="button-next"><span class="sr-only">Next</span></div>');
+        var activeClass = "";
+  
+        $(".section").each(function (i) {
+          activeClass = "";
+          if (i === $.scrollify.currentIndex()) {
+            activeClass = "active";
+          }
+          pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("id") + "\"><span class=\"sr-only\">" + $(this).attr("id") + "</span></a></li>";
+        });
+  
+        pagination += "</ul>";
+  
+        $(".main-wrapper").append(pagination);
+        $(".main-wrapper").append(btnNext);
+  
+        $(".button-next").click(function (e) {
+          e.preventDefault();
+  
+          scroll.setActive($('.section.section-active').next());
+        });
+  
+        $(".pagination-sections a").click(function (e) {
+          e.preventDefault();
+  
+          scroll.setActive($($(this).attr('href')));
+        });
+      }
+    }
   
     $(function () {
       initAccordion();
       initAccordionFooter();
   
-      initScrollify();
-      showHideMenu();
+      scroll.init();
   
       menu.init();
-  
-      $(window).resize(function () {
-        // initAccordionFooter();
-      });
-  
     });
   
-  })(jQuery, Drupal);
+  
+  })(jQuery);
   
