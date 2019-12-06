@@ -193,7 +193,7 @@ input[placeholder] {
   width: 100%;
   max-width: rem($max-container);
   margin: 0 auto;
-  padding: 0 $padding;
+  padding: 0 rem($padding);
 }
 
 .full-float {
@@ -255,6 +255,7 @@ input[placeholder] {
   pointer-events: none !important;
   overflow: hidden !important;
   border: none !important;
+  padding: 0 !important;
 
   @include appearance(none);
 }

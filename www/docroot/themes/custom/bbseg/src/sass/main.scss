@@ -22,9 +22,11 @@
 @import "layout/footer";
 
 /* IMPORT COMPONENTS */
+@import "components/loading";
 @import "components/pagination-sections";
 @import "components/block-content--banner";
 @import "components/block-content--card";
+@import "components/steps-form";
 
 /* IMPORT PAGES */
 @import "pages/home";

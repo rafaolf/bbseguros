@@ -1,0 +1,503 @@
+.block-webform-block {
+	> h2 {
+		display: none;
+	}
+}
+
+.open-navegacao-guiada {
+	cursor: pointer;
+}
+
+#webform-submission-navegacao-guiada-form-ajax {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 11;
+	background: $color-3;
+	color: $white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	overflow: auto;
+	pointer-events: none;
+	opacity: 0;
+
+	@include transition($ease-1);
+	@include transform(translateX(100%));
+
+	&.active {
+		pointer-events: initial;
+		opacity: 1;
+
+		@include transform(translateX(0));
+	}
+
+	@mixin _btn($background: $color-0, $color: $color-1, $border: $color-0) {
+		display: flex;
+		align-items: center;
+		padding: 0 rem(40px);
+		font-size: rem(24px);
+		height: rem(80px);
+		background: $background;
+		color: $color;
+		justify-content: center;
+		border: 2px solid $border;
+
+		@include border-radius(rem(40px));
+
+		@media #{$max-sm} {
+			font-size: rem(12px);
+			height: rem(44px);
+			font-weight: bold;
+			padding: 0 rem(15px);
+			border: 1px solid $border;
+
+			@include border-radius(rem(22px));
+		}
+	}
+
+	.contextual-region {
+		position: static;
+	}
+
+	.logo {
+		position: absolute;
+		top: rem(30px);
+		left: rem(60px);
+		height: rem(110px);
+		width: rem(140px);
+		background: url("/themes/custom/bbseg/images/logo.png") no-repeat top center;
+		background-size: contain;
+
+		@media #{$max-sm} {
+			top: rem(24px);
+			left: rem(24px);
+			width: rem(55px);
+			height: rem(40px);
+		}
+	}
+
+	.btn-sair {
+		position: absolute;
+		top: rem(30px);
+		right: rem(60px);
+		border: 1px solid $white;
+		height: rem(60px);
+		padding: 0 rem(30px);
+		display: flex;
+		align-items: center;
+		font-size: rem(24px);
+		font-weight: bold;
+		color: $white;
+
+		@include border-radius(rem(30px));
+
+		@media #{$max-sm} {
+			top: rem(24px);
+			right: rem(24px);
+			font-size: rem(12px);
+			height: rem(44px);
+
+			@include border-radius(rem(22px));
+		}
+	}
+
+	.webform-button--next,
+	.webform-button--previous,
+	.webform-actions {
+		@extend .sr-only;
+	}
+
+	.btn-prev {
+		@include _btn($color-0, $color-1, $color-0);
+
+		position: fixed;
+		top: 50%;
+		left: 0;
+
+		@include transform(translate(0, -50%));
+		@include border-radius(0 rem(40px) rem(40px) 0);
+
+		@media #{$max-sm} {
+			display: none;
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			width: rem(15px);
+			height: rem(22px);
+			background: use-svg(arrow, $color-1) no-repeat center center;
+			background-size: contain;
+			margin-right: rem(12px);
+
+			@include scale(-1, 1);
+		}
+
+		&.inactive {
+			@include transform(translate(-100%, -50%));
+		}
+	}
+
+	.webform-submission-form {
+		display: block;
+		width: 100%;
+		// padding: rem(20px) $padding rem(100px);
+		padding: 0 $padding;
+
+		.webform-progress {
+			position: absolute;
+			bottom: rem(60px);
+			left: 0;
+			right: 0;
+			margin: auto;
+
+			@media #{$max-sm} {
+				bottom: 0;
+			}
+
+			.webform-progress-tracker {
+				margin: 0 auto;
+				justify-content: center;
+
+				.progress-step {
+					min-width: auto;
+					margin: 0 rem(8px);
+					flex: 0 0 auto;
+
+					@media #{$max-sm} {
+						margin: 0 rem(5px);
+					}
+
+					&:after {
+						display: none;
+					}
+
+					.progress-marker {
+						width: rem(16px);
+						height: rem(16px);
+						font-size: 0;
+						padding: 0;
+						background: rgba($white, 0.6);
+
+						@media #{$max-sm} {
+							width: rem(25px);
+							height: rem(3px);
+							border-radius: 0;
+						}
+					}
+
+					.progress-text {
+						@extend .sr-only;
+					}
+
+					&.is-active {
+						.progress-marker {
+							background: $color-1;
+						}
+					}
+				}
+			}
+		}
+
+		.form-wrapper[data-webform-key] {
+			position: relative;
+			max-width: rem(900px);
+			margin: 0 auto;
+
+			&:before {
+				content: "";
+				display: none;
+				margin: 0 auto rem(20px);
+				background: no-repeat center center;
+				background-size: contain;
+			}
+
+			.form-item {
+				.form-required,
+				legend .fieldset-legend {
+					display: block;
+					font-size: rem(36px);
+					margin-bottom: rem(40px);
+
+					@media #{$max-sm} {
+						line-height: 1.5;
+						font-weight: bold;
+						font-size: rem(16px);
+						margin-bottom: rem(20px);
+					}
+				}
+
+				.form-radios {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+
+					@media #{$max-sm} {
+						margin: 0 rem(-10px);
+					}
+
+					.form-type-radio {
+						flex: 0 0 rem(250px);
+						margin: 0 rem(15px) rem(30px) rem(15px);
+
+						@media #{$max-sm} {
+							flex: 0 0 rem(130px);
+							margin: 0 rem(10px) rem(20px) rem(10px);
+						}
+
+						input[type="radio"] {
+							@extend .sr-only;
+
+							~ label {
+								@include _btn(transparent, $white, $white);
+
+								justify-content: center;
+								// white-space: nowrap;
+								font-weight: bold;
+
+								@media #{$max-sm} {
+									padding: 0 rem(5px);
+								}
+							}
+
+							&:checked {
+								~ label {
+									@include _btn($color-1, $color-0, $color-1);
+
+									font-weight: bold;
+
+									@media #{$max-sm} {
+										padding: 0 rem(5px);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.html {
+				.text-big {
+					font-family: $font-1;
+					padding-top: rem(30px);
+					font-size: rem(200px);
+					line-height: 0.9;
+					color: $color-1;
+
+					@media #{$max-sm} {
+						padding-top: rem(10px);
+						font-size: rem(78px);
+						margin-bottom: rem(10px);
+					}
+				}
+			}
+
+			&[id^="edit-inicio"] {
+				@media #{$max-sm} {
+					padding-bottom: rem(62px);
+				}
+
+				&:before {
+					display: block;
+					width: rem(140px);
+					height: rem(120px);
+					background-image: use-svg(icon-house);
+
+					@media #{$max-sm} {
+						width: rem(65px);
+						height: rem(55px);
+					}
+				}
+
+				.html {
+					.description {
+						max-width: rem(600px);
+						font-size: rem(20px);
+						margin: 0 auto rem(20px);
+
+						@media #{$max-sm} {
+							font-size: rem(14px);
+							margin-bottom: rem(15px);
+							line-height: 1.5;
+						}
+					}
+				}
+
+				.form-text {
+					@include _btn($white, $color-0, $white);
+
+					width: 100%;
+					padding: 0 rem(40px);
+
+					@media #{$max-sm} {
+						text-align: center;
+						font-weight: bold;
+					}
+				}
+
+				.btn-next {
+					@include _btn($color-1, $color-0, $color-1);
+
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					text-transform: none;
+
+					@media #{$max-sm} {
+						width: 100%;
+						text-transform: uppercase;
+						font-weight: bold;
+						text-align: center;
+					}
+
+					&:after {
+						content: "";
+						display: block;
+						width: rem(15px);
+						height: rem(22px);
+						background: use-svg(arrow, $color-0) no-repeat center center;
+						background-size: contain;
+						margin-left: rem(12px);
+
+						@media #{$max-sm} {
+							display: none;
+						}
+					}
+				}
+			}
+
+			&[id^="edit-segunda"] {
+				&:before {
+					display: block;
+					width: rem(118px);
+					height: rem(108px);
+					background-image: use-svg(icon-calendar);
+
+					@media #{$max-sm} {
+						width: rem(52px);
+						height: rem(48px);
+					}
+				}
+			}
+
+			&[id^="edit-terceira"] {
+				&:before {
+					display: block;
+					width: rem(140px);
+					height: rem(110px);
+					background-image: use-svg(icon-married);
+
+					@media #{$max-sm} {
+						width: rem(70px);
+						height: rem(55px);
+					}
+				}
+
+				.form-item {
+					.form-radios {
+						.form-type-radio {
+							@media #{$min-md} {
+								flex: 0 0 rem(260px);
+							}
+						}
+					}
+				}
+			}
+
+			&[id^="edit-quarta"] {
+				&:before {
+					display: block;
+					width: rem(130px);
+					height: rem(120px);
+					background-image: use-svg(icon-baby);
+
+					@media #{$max-sm} {
+						width: rem(75px);
+						height: rem(70px);
+					}
+				}
+			}
+
+			&[id^="edit-quinta"] {
+				&:before {
+					display: block;
+					width: rem(130px);
+					height: rem(115px);
+					background-image: use-svg(icon-life);
+
+					@media #{$max-sm} {
+						width: rem(74px);
+						height: rem(66px);
+					}
+				}
+
+				.form-item {
+					.form-radios {
+						.form-type-radio {
+							@media #{$min-md} {
+								flex: 0 0 rem(390px);
+							}
+						}
+					}
+				}
+			}
+
+			&[id^="edit-sexta"] {
+				max-width: rem(1200px);
+
+				&:before {
+					display: block;
+					width: rem(115px);
+					height: rem(115px);
+					background-image: use-svg(icon-time);
+
+					@media #{$max-sm} {
+						width: rem(68px);
+						height: rem(68px);
+					}
+				}
+
+				.form-item {
+					.form-radios {
+						.form-type-radio {
+							@media #{$min-md} {
+								flex: 0 0 rem(530px);
+							}
+						}
+					}
+				}
+			}
+
+			&[id^="edit-XXX"] {
+				&:before {
+					display: block;
+					width: rem(10px);
+					height: rem(10px);
+					background-image: use-svg(icon-house);
+				}
+			}
+		}
+
+		[data-drupal-messages] {
+			display: none;
+
+			~ .form-wrapper {
+				.form-item {
+					.form-required {
+						color: $color-danger;
+					}
+				}
+
+				&[id^="edit-inicio"] {
+					.form-text {
+						border: 2px solid $color-danger;
+					}
+				}
+			}
+		}
+	}
+}
