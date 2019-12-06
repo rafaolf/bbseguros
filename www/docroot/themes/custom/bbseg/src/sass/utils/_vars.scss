@@ -14,7 +14,7 @@ $min-sm: "screen and (min-width: #{$screen-xs-max + 1})";
 $min-md: "print, screen and (min-width: #{$screen-sm-max + 1})"; // Rules for desktop and print
 
 /*** LAYOUT WIDTH ***/
-$mobile-width: 375px !default;
+$mobile-width: 320px !default;
 $tablet-width: 750px !default;
 $desktop-width: 1920px !default;
 $max-container: 1680px !default;
@@ -29,8 +29,9 @@ $gray-1: #999999;
 $color-0: #193db7;
 $color-1: #fff300;
 $color-2: #2d6efa;
+$color-3: #1a2e6f;
 
-$color-danger: #DD4B39;
+$color-danger: #ff5656;
 
 $color-easy: #d2df8f;
 $color-intermediate: #fbc36c;

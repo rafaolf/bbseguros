@@ -1,6 +1,10 @@
 (function ($) {
   function isMobile() {
-    return $(window).width <= 991;
+    return $(window).width() <= 991;
+  }
+
+  $.fn.hasScrollBar = function () {
+    return this.get(0).scrollHeight > this.height();
   }
 
   function lockScroll() {
@@ -11,16 +15,13 @@
     $('html, body').css('overflow', '');
   }
 
-  function readLocalCss() {
-    var script = $('link').filter(function () {
-      return $(this).attr('href').indexOf('/themes/custom/bbseg/css/main.css') >= 0;
-    });
-
-    script.attr('href', '/themes/custom/bbseg/css/main.css?v=' + parseInt(Math.random() * 100000));
+  function showLoading() {
+    $('.loading').addClass('active');
   }
 
-  var a = readLocalCss;
-
+  function hideLoading() {
+    $('.loading').removeClass('active');
+  }
 
   function initAccordion() {
     jQuery('.accordion').each(function () {
@@ -112,7 +113,6 @@
 
       $click.addClass('menu-active');
       othis.$el.addClass('menu-active');
-
     },
 
     close: function () {
@@ -322,11 +322,7 @@
       var activeClass = "";
 
       $(".section").each(function (i) {
-        activeClass = "";
-        if (i === $.scrollify.currentIndex()) {
-          activeClass = "active";
-        }
-        pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("id") + "\"><span class=\"sr-only\">" + $(this).attr("id") + "</span></a></li>";
+        pagination += "<li><a href=\"#" + $(this).attr("id") + "\"><span class=\"sr-only\">" + $(this).attr("id") + "</span></a></li>";
       });
 
       pagination += "</ul>";
@@ -348,6 +344,137 @@
     }
   }
 
+  var navegacaoGuiada = {
+
+    init: function () {
+      var othis = this;
+
+      othis.form = $('#webform-submission-navegacao-guiada-form-ajax');
+      othis.formID = othis.form.find('form').attr('data-drupal-form-fields');
+      othis.btnNext = othis.form.find('.webform-button--next');
+      othis.btnPrev = othis.form.find('.webform-button--previous');
+      othis.btnOpen = $('.open-navegacao-guiada');
+      othis.steps = othis.form.find('.is-active').index('.progress-step');
+
+      othis.showHidePrevButton();
+      // othis.showHideProgress();
+      othis.addEventListener();
+    },
+
+    addEventListener: function () {
+      var othis = this;
+
+      othis.btnOpen.click(function (e) {
+        e.preventDefault();
+
+        othis.open();
+      });
+
+      othis.form.find('.btn-next').click(function (e) {
+        e.preventDefault();
+
+        othis.next();
+      });
+
+      othis.form.find('.form-type-radio label').click(function (e) {
+        // e.preventDefault();
+
+        setTimeout(function () {
+          othis.next();
+        }, 300);
+      });
+
+      othis.form.find('.btn-prev').click(function (e) {
+        e.preventDefault();
+
+        othis.prev();
+      });
+
+      othis.form.find('.btn-sair').click(function (e) {
+        e.preventDefault();
+
+        othis.close();
+      });
+
+      $(window).resize(function () {
+        othis.showHideProgress();
+      });
+    },
+
+    reloadElements: function () {
+      var othis = this;
+
+      if (othis.steps == 5) {
+        alert('Fim!');
+        return;
+      }
+
+      showLoading();
+
+      var reload = setInterval(function () {
+        // console.log(othis.form.find('form'), othis.formID, othis.form.find('form').attr('data-drupal-form-fields'));
+
+        if (othis.form.find('form') == undefined || othis.formID == othis.form.find('form').attr('data-drupal-form-fields'))
+          return;
+
+        clearInterval(reload);
+
+        othis.init();
+
+        hideLoading();
+      }, 200);
+
+    },
+
+    next: function () {
+      var othis = this;
+
+      othis.btnNext.trigger('click');
+
+      othis.reloadElements();
+    },
+
+    prev: function () {
+      var othis = this;
+
+      othis.btnPrev.trigger('click');
+
+      othis.reloadElements();
+    },
+
+    open: function () {
+      var othis = this;
+
+      othis.form.addClass('active');
+      lockScroll();
+    },
+
+    close: function () {
+      var othis = this;
+
+      othis.form.removeClass('active');
+      unlockScroll();
+    },
+
+    showHidePrevButton: function () {
+      var othis = this;
+
+      othis.form.find('.btn-prev').addClass('inactive');
+
+      if (othis.btnPrev.length > 0)
+        othis.form.find('.btn-prev').removeClass('inactive');
+    },
+
+    showHideProgress: function () {
+      var othis = this;
+
+      if (othis.form.hasScrollBar())
+        othis.form.find('.webform-progress').hide();
+    }
+  }
+
+  var $ = jQuery;
+
   $(function () {
     initAccordion();
     initAccordionFooter();
@@ -355,7 +482,20 @@
     scroll.init();
 
     menu.init();
+    navegacaoGuiada.init()
   });
 
-
 })(jQuery);
+
+
+function readLocalCss() {
+  jQuery('link').each(function () {
+    $el = jQuery(this);
+    var href = $el.attr('href');
+    if (href.indexOf('main.css') >= 0) {
+      if (href.indexOf('?') >= 0)
+        href = href.split('?')[0];
+      $el.attr('href', href + "?v=" + parseInt(Math.random() * 100000));
+    }
+  });
+}
