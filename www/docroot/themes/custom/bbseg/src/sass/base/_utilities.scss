@@ -1,5 +1,6 @@
 html {
-  font-size: $font-size;
+  // font-size: $font-size;
+  font-size: $font-size * 100 / $desktop-width * 1vw;
 
   @media #{$max-md} {
     font-size: $font-size * 100 / $desktop-width * 1vw;
@@ -34,7 +35,8 @@ body {
 
 .main-wrapper {
   overflow: hidden;
-  max-width: $screen-max;
+  // max-width: $screen-max;
+  max-width: 100%;
   margin: 0 auto;
 }
 

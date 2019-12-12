@@ -319,16 +319,16 @@
     createControllers: function () {
       var pagination = "<ul class=\"pagination-sections\">";
       var btnNext = $('<div class="button-next"><span class="sr-only">Next</span></div>');
-      var activeClass = "";
 
       $(".section").each(function (i) {
         pagination += "<li><a href=\"#" + $(this).attr("id") + "\"><span class=\"sr-only\">" + $(this).attr("id") + "</span></a></li>";
       });
 
+
       pagination += "</ul>";
 
       $(".main-wrapper").append(pagination);
-      $(".main-wrapper").append(btnNext);
+      $('.section').append(btnNext);
 
       $(".button-next").click(function (e) {
         e.preventDefault();

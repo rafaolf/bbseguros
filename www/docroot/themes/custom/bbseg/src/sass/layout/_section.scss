@@ -1,0 +1,33 @@
+.section {
+	position: relative;
+
+	.button-next {
+		position: absolute;
+		bottom: rem(50px);
+		left: 50%;
+		width: rem(44px);
+		height: rem(44px);
+		z-index: 9;
+		cursor: pointer;
+		background: use-svg(arrow-light, $color-0) no-repeat center center;
+		opacity: 0;
+		background-size: contain;
+
+		@include transition($ease-0);
+		@include transform(translateX(-50%));
+
+		@media #{$max-sm} {
+			background: use-svg(arrow, $color-0) no-repeat center center;
+			bottom: rem(20px);
+			background-size: rem(12px) auto;
+
+			@include transform(translateX(-50%) rotate(90deg));
+		}
+	}
+
+	&.section-active {
+		.button-next {
+			opacity: 1;
+		}
+	}
+}
