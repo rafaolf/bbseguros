@@ -273,14 +273,9 @@
     showHideMenu() {
       var othis = this;
       var st = $(window).scrollTop() - 2;
-
-      if (st < othis.showHideLastScrollTop) {
-        $('.main-header').removeClass('hide-menu');
-      } else {
-        $('.main-header').addClass('hide-menu');
-      }
-
-      othis.showHideLastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop();
+      console.log(st);
+      console.log(othis.showHideLastScrollTop);
+      $('.main-header').removeClass('hide-menu');
     },
 
     createSections: function () {
