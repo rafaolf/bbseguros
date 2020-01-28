@@ -1,135 +1,135 @@
 .section-contact {
-  display: flex;
-  align-items: center;
-  padding: rem(170px) 0 rem(30px);
+	display: flex;
+	align-items: center;
+	padding-top: rem($height-header);
 
-  @media #{$max-sm} {
-    flex-direction: column;
-    padding: rem(80px) 0 0;
-  }
+	@media #{$max-sm} {
+		flex-direction: column;
+		padding-top: 0;
+	}
 
-  >* {
-    width: 50%;
+	> * {
+		width: 50%;
 
-    @media #{$max-sm} {
-      width: 100%;
-    }
+		@media #{$max-sm} {
+			width: 100%;
+		}
 
-    &.image {
-      img {
-        display: block;
-        width: 100%;
-      }
-    }
+		&.image {
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
 
-    &.infos {
-      text-align: center;
-      padding: 0 rem(140px) 0 rem(70px);
+		&.infos {
+			text-align: center;
+			padding: 0 rem(140px) 0 rem(70px);
 
-      @media #{$max-sm} {
-        padding: rem(20px) $padding 0;
-      }
+			@media #{$max-sm} {
+				padding: rem(20px) $padding 0;
+			}
 
-      .title {
-        text-transform: uppercase;
-        font-size: rem(80px);
-        font-family: $font-1;
-        line-height: 0.9;
+			.title {
+				text-transform: uppercase;
+				font-size: rem(80px);
+				font-family: $font-1;
+				line-height: 0.9;
 
-        @media #{$max-sm} {
-          font-size: rem(28px);
-        }
-      }
+				@media #{$max-sm} {
+					font-size: rem(28px);
+				}
+			}
 
-      .sub-title {
-        font-size: rem(22px);
+			.sub-title {
+				font-size: rem(22px);
 
-        @media #{$max-sm} {
-          font-size: rem(14px);
-        }
-      }
+				@media #{$max-sm} {
+					font-size: rem(14px);
+				}
+			}
 
-      .menu {
-        display: flex;
-        padding-top: rem(70px);
-        justify-content: space-between;
-        flex-wrap: wrap;
+			.menu {
+				display: flex;
+				padding-top: rem(70px);
+				justify-content: space-between;
+				flex-wrap: wrap;
 
-        @media #{$max-sm} {
-          padding-top: rem(20px);
-        }
+				@media #{$max-sm} {
+					padding-top: rem(20px);
+				}
 
-        li {
-          @media #{$max-sm} {
-            width: 50%;
-            margin-bottom: rem(20px);
-          }
+				li {
+					@media #{$max-sm} {
+						width: 50%;
+						margin-bottom: rem(20px);
+					}
 
-          a {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: rem(26px);
+					a {
+						display: flex;
+						flex-wrap: wrap;
+						align-items: center;
+						text-align: center;
+						justify-content: center;
+						font-weight: 700;
+						font-size: rem(26px);
 
-            @media #{$max-sm} {
-              font-size: rem(16px);
-            }
+						@media #{$max-sm} {
+							font-size: rem(16px);
+						}
 
-            &:hover {
-              opacity: 0.8;
-            }
+						&:hover {
+							opacity: 0.8;
+						}
 
-            &:after,
-            &:before {
-              content: "";
-              display: block;
-              width: rem(12px);
-              height: rem(12px);
-              margin-left: rem(5px);
-              background: use-svg(arrow, $color-0) no-repeat center center transparent;
-              background-size: contain;
+						&:after,
+						&:before {
+							content: "";
+							display: block;
+							width: rem(12px);
+							height: rem(12px);
+							margin-left: rem(5px);
+							background: use-svg(arrow, $color-0) no-repeat center center transparent;
+							background-size: contain;
 
-              @media #{$max-sm} {
-                width: rem(6px);
-                margin-left: rem(4px);
-              }
-            }
+							@media #{$max-sm} {
+								width: rem(6px);
+								margin-left: rem(4px);
+							}
+						}
 
-            &:before {
-              width: 100%;
-              height: rem(74px);
-              margin-bottom: rem(5px);
-              background: use-svg(icon-seguros, $color-0) no-repeat center center transparent;
-              background-size: contain;
+						&:before {
+							width: 100%;
+							height: rem(74px);
+							margin-bottom: rem(5px);
+							background: use-svg(icon-seguros, $color-0) no-repeat center center transparent;
+							background-size: contain;
 
-              @media #{$max-sm} {
-                height: rem(38px);
-              }
-            }
+							@media #{$max-sm} {
+								height: rem(38px);
+							}
+						}
 
-            &.link-previdencia {
-              &:before {
-                background-image: use-svg(icon-previdencia, $color-0);
-              }
-            }
+						&.link-previdencia {
+							&:before {
+								background-image: use-svg(icon-previdencia, $color-0);
+							}
+						}
 
-            &.link-capitalizacao {
-              &:before {
-                background-image: use-svg(icon-capitalizacao, $color-0);
-              }
-            }
+						&.link-capitalizacao {
+							&:before {
+								background-image: use-svg(icon-capitalizacao, $color-0);
+							}
+						}
 
-            &.link-dental {
-              &:before {
-                background-image: use-svg(icon-dental, $color-0);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+						&.link-dental {
+							&:before {
+								background-image: use-svg(icon-dental, $color-0);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -6,7 +6,6 @@ global-styling:
 
 global-scripts:
   js:
-    js/scrollify.js: {}
     js/global.js: {}
   dependencies:
     - core/jquery

@@ -80,7 +80,7 @@
     init: function () {
       var othis = this;
 
-      othis.$el = $('.region-menu');
+      othis.$el = $('#fullMenu');
 
       othis.addEvenetListeners();
     },
@@ -182,7 +182,8 @@
     init: function () {
       var othis = this;
 
-      othis.createSections();
+      othis.sections = $('#fullpage .section');
+
       othis.createControllers();
 
       othis.addEventListeners();
@@ -213,13 +214,13 @@
           othis.scrollDisabled = true;
           othis.active = newActive;
 
-          if (othis.active.attr('id').indexOf('home') >= 0) {
-            $('.main-header').removeClass('menu-fixed');
-            $('.pagination-sections').removeClass('pagination-fixed');
-          } else {
-            $('.main-header').addClass('menu-fixed');
-            $('.pagination-sections').addClass('pagination-fixed');
-          }
+          // if (othis.active.attr('id').indexOf('home') >= 0) {
+          //   $('.main-header').removeClass('menu-fixed');
+          //   $('.pagination-sections').removeClass('pagination-fixed');
+          // } else {
+          //   $('.main-header').addClass('menu-fixed');
+          //   $('.pagination-sections').addClass('pagination-fixed');
+          // }
 
           if (othis.active.attr('id').indexOf('footer') >= 0) {
             $('.button-next').fadeOut();
@@ -233,20 +234,17 @@
           if (paginationActive.length > 0)
             paginationActive.addClass('active');
 
-            $('html, body').stop().animate({
-              scrollTop: othis.active.offset().top + (othis.lastScrollTop < $(window).scrollTop() ? 2 : -2)
-            }, 1000, function () {
-  
-              othis.sections.removeClass('section-active');
-              othis.active.addClass('section-active');
-  
-              setTimeout(function(){
-                  othis.scrollDisabled = false;
-                  enableScroll();
-  
-                  othis.lastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop(); // For Mobile or negative scrolling
-              }, 200);
-            });
+          $('html, body').stop().animate({
+            scrollTop: othis.active.offset().top
+          }, 1000, function () {
+            othis.scrollDisabled = false;
+            enableScroll();
+
+            othis.sections.removeClass('section-active');
+            othis.active.addClass('section-active');
+
+            othis.lastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop(); // For Mobile or negative scrolling
+          });
         }
       }
     },
@@ -277,46 +275,13 @@
       var othis = this;
       var st = $(window).scrollTop() - 2;
 
-      // if (st < othis.showHideLastScrollTop) {
-      //   $('.main-header').removeClass('hide-menu');
-      // } else {
-      //   $('.main-header').addClass('hide-menu');
-      // }
+      if (st < othis.showHideLastScrollTop) {
+        $('.main-header').removeClass('hide-menu');
+      } else {
+        $('.main-header').addClass('hide-menu');
+      }
 
       othis.showHideLastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop();
-    },
-
-    createSections: function () {
-      var othis = this;
-
-      var parent = $('.block-region-content');
-      var banner = $('.block-content--banner-homepage');
-      var card = $('.block-content--text-principal');
-      var section = $('<section id="section-home" class="section"></section>');
-      var name = null;
-      var className = null;
-
-      section.append(banner);
-      section.append(card);
-
-      section.insertBefore(parent);
-
-      parent.find('> *').each(function () {
-        className = $(this).attr('class');
-
-        if ($(this).attr('class').indexOf('block-content--card') >= 0) {
-          name = className.substr(className.indexOf('block-content--card'), className.indexOf(' ')).replace('block-content--card-', '');
-          section = $('<section id="section-' + name + '" class="section"></section>');
-          section.append($(this));
-        } else {
-          section.append($(this));
-          parent.append(section);
-        }
-      });
-
-      parent.find('> *').unwrap();
-
-      othis.sections = $('#fullpage .section');
     },
 
     createControllers: function () {
@@ -327,7 +292,6 @@
         pagination += "<li><a href=\"#" + $(this).attr("id") + "\"><span class=\"sr-only\">" + $(this).attr("id") + "</span></a></li>";
       });
 
-
       pagination += "</ul>";
 
       $(".main-wrapper").append(pagination);
@@ -336,7 +300,7 @@
       $(".button-next").click(function (e) {
         e.preventDefault();
 
-        scroll.setActive($('.section.section-active').next());
+        scroll.setActive($('.section-active').nextAll('.section'));
       });
 
       $(".pagination-sections a").click(function (e) {

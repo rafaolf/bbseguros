@@ -44,19 +44,30 @@
 #}
 
 <div class="main-wrapper">
+
 	<header class="main-header" role="header">
-		{{ page.header }}
+		<div class="container-header container">
+			{{ page.header }}
 
-		<a class="hamburguer" href="#" menu-open>
-			<span class="sr-only">Open menu</span>
-		</a>
+			<a class="hamburguer" href="#" menu-open>
+				<span class="sr-only">Open menu</span>
+			</a>
+		</div>
 
-		<a href="#" class="hand">
-			<span class="sr-only">Next</span>
-		</a>
+		<div class="region region-full-menu" id="fullMenu">
+			<div class="close" menu-close>
+				<span class="sr-only">Close</span>
+			</div>
 
-		{{ page.menu }}
+			{{ page.toolbar }}
+
+			{{ page.menu }}
+		</div>
 	</header>
+
+	<a href="#" class="hand">
+		<span class="sr-only">Lorem, ipsum.</span>
+	</a>
 
 	<main role="main">
 		{{ page.breadcrumb }}

@@ -21,10 +21,10 @@ use Drupal\media\MediaForm;
  * Implements hook_theme_suggestions_HOOK_alter() for form_element.
  */
 
-function bbseg_theme_suggestions_block_alter(array &$suggestions, array $variables) {
-  // Add Views tag suggestions for block templates
-  if ($variables['elements']['#base_plugin_id'] == 'views_block') {
-    $view = View::load($variables['elements']['content']['#view_id']);
-    $suggestions[] = 'block__' . str_replace('-', '_', $view->get('tag'));
-  }
-}
+// function bbseg_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+//   // Add Views tag suggestions for block templates
+//   if ($variables['elements']['#base_plugin_id'] == 'views_block') {
+//     $view = View::load($variables['elements']['content']['#view_id']);
+//     $suggestions[] = 'block__' . str_replace('-', '_', $view->get('tag'));
+//   }
+// }

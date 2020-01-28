@@ -1,0 +1,123 @@
+.section-home {
+	position: relative;
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	align-items: center;
+	padding-top: rem($height-header);
+
+	@media #{$max-sm} {
+		padding-top: rem($height-header-xs);
+	}
+
+	.image {
+		@extend .full-image;
+
+		pointer-events: none;
+		background: $color-2;
+		z-index: 0;
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0.4;
+
+			@include background-image(linear-gradient(to right, $black 0%, rgba($black, 0) 100%));
+		}
+	}
+
+	.text {
+		position: relative;
+		z-index: 1;
+		color: $white;
+
+		> * {
+			margin-bottom: rem(20px);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.tag {
+			display: inline-flex;
+			font-size: rem(48px);
+			line-height: 1;
+			padding: rem(10px) rem(10px) rem(4px);
+			color: $color-0;
+			background: $color-1;
+			text-transform: uppercase;
+			font-family: $font-1;
+
+			@media #{$max-xs} {
+				font-size: rem(32px);
+			}
+		}
+
+		.title {
+			font-family: $font-1;
+			font-size: rem(88px);
+			line-height: 1.05;
+			max-width: rem(570px);
+
+			@media #{$max-xs} {
+				font-size: rem(58px);
+			}
+		}
+
+		.description {
+			max-width: rem(500px);
+			font-size: rem(22px);
+			line-height: 1.4;
+
+			@media #{$max-xs} {
+				font-size: rem(18px);
+			}
+		}
+	}
+
+	&#section-seguros {
+		.text {
+			.title {
+				max-width: rem(380px);
+			}
+
+			.description {
+			}
+		}
+	}
+
+	&#section-previdencia {
+		.text {
+			.title {
+				max-width: rem(400px);
+			}
+		}
+	}
+
+	&#section-capitalizacao {
+		.text {
+			.title {
+				max-width: rem(435px);
+			}
+		}
+	}
+
+	&#section-dental {
+		.text {
+			.title {
+				max-width: rem(500px);
+			}
+		}
+	}
+}
+
+// ESCONDENDO BLOCOS ANTIGOS
+.block.block-block-content.block-broken {
+	display: none;
+}
