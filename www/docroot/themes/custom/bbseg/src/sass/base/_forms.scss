@@ -1,11 +1,6 @@
 .default-input {
   display: block;
   font-size: rem(14px);
-
-  @include input-placeholder {
-    color: red;
-
-  }
 }
 
 .default-checkbox {

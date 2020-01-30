@@ -440,6 +440,50 @@
     }
   }
 
+  function openSubmenu() {
+    $('.open-sub-menu').click(function (e) {
+      e.preventDefault();
+
+      var $this = $(this);
+      var $el = $('.region-sub-menu');
+
+      if($('.modal-search').hasClass('active')){
+        $('.modal-search').removeClass('active');
+        $('.open-search, .modal-search .button-close').removeClass('active');
+      }
+
+      if($el.hasClass('active')){
+        $this.removeClass('active');
+        $el.removeClass('active');
+      } else {
+        $this.addClass('active');
+        $el.addClass('active');
+      }
+    });
+  }
+
+  function openSearch() {
+    $('.open-search, .modal-search .button-close').click(function (e) {
+      e.preventDefault();
+
+      var $this = $('.open-search, .modal-search .button-close');
+      var $el = $('.modal-search');
+
+      if($('.open-sub-menu').hasClass('active')){
+        $('.open-sub-menu').removeClass('active');
+        $('.region-sub-menu').removeClass('active');
+      }
+
+      if($el.hasClass('active')){
+        $this.removeClass('active');
+        $el.removeClass('active');
+      } else {
+        $this.addClass('active');
+        $el.addClass('active');
+      }
+    });
+  }
+
   var $ = jQuery;
 
   $(function () {
@@ -450,6 +494,9 @@
 
     menu.init();
     navegacaoGuiada.init()
+
+    openSubmenu();
+    openSearch();
   });
 
 })(jQuery);
