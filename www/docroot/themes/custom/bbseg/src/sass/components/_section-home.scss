@@ -16,6 +16,7 @@
 		pointer-events: none;
 		background: $color-2;
 		z-index: 0;
+		margin-top: rem(100px);
 
 		&:after {
 			content: "";
