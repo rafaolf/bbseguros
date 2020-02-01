@@ -14,7 +14,9 @@
         "drupal/config_ignore": "^2.1",
         "drupal/block_content_machine_name": "^1.5",
         "drupal/config_exclude": "1.x-dev",
-        "drupal/webform": "^5.5"
+        "drupal/webform": "^5.5",
+        "drupal/imageapi_optimize": "^2.0@alpha",
+        "drupal/paragraphs": "^1.10"
     },
     "config": {
         "process-timeout": 0,
