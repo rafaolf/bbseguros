@@ -73,7 +73,7 @@
 
 		.description {
 			max-width: rem(500px);
-			font-size: rem(22px);
+			font-size: rem(20px);
 			line-height: 1.4;
 
 			@media #{$max-xs} {
@@ -86,9 +86,6 @@
 		.text {
 			.title {
 				max-width: rem(380px);
-			}
-
-			.description {
 			}
 		}
 	}

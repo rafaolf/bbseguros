@@ -44,13 +44,13 @@
 
 			{% if content.field_title2[0] %}
 				<h2 class="title">
-					{{ content.field_title2[0] }}
+					{{ content.field_title2[0]["#context"]["value"]|raw|nl2br }}
 				</h2>
 			{% endif %}
 
 			{% if content.field_text[0] %}
 				<p class="description">
-					{{ content.field_text[0] }}
+					{{ content.field_text[0]["#context"]["value"]|raw|nl2br }}
 				</p>
 			{% endif %}
 

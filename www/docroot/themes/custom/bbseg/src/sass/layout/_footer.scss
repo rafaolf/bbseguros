@@ -5,7 +5,7 @@
   .container {
     display: flex;
     justify-content: space-between;
-    padding: rem(50px) $padding rem(60px);
+    padding: rem(50px) $padding rem(30px);
 
     @media #{$max-sm} {
       flex-direction: column;
@@ -99,7 +99,7 @@
             strong {
               display: flex;
               align-items: center;
-              font-size: rem(24px);
+              font-size: rem(18px);
               color: $white;
               margin-bottom: rem(8px);
 
@@ -231,6 +231,22 @@
           }
         }
       }
+    }
+  }
+  .texto-legal {
+    display: block;
+    width: 100%;
+    max-width: 105rem;
+    margin: 0 auto;
+    padding-top: rem(30px);
+    padding-bottom: rem(30px);
+    border-top: 1px solid $white;
+
+    p {
+      color: $white;
+      font-size: rem(14px);
+      font-weight: 400;
+      line-height: 21px;
     }
   }
 }
