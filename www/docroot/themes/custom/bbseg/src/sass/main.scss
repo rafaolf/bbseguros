@@ -19,13 +19,15 @@
 /* IMPORT LAYOUT */
 @import "layout/header";
 @import "layout/footer";
-@import "layout/section";
+@import "layout/section-contact";
 
 /* IMPORT COMPONENTS */
+@import "components/box-html";
 @import "components/loading";
 @import "components/pagination-sections";
 @import "components/section-home";
 @import "components/steps-form";
+@import "components/breadcrumb";
 
 /* IMPORT PAGES */
-@import "pages/home";
+@import "pages/landing-pages";

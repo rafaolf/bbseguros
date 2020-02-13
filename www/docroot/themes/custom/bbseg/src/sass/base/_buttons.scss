@@ -1,47 +1,4 @@
-@mixin btn($background: $color-0, $color: $color-1, $border: $color-0) {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: rem(250px);
-	padding: 0 rem(10px);
-	font-size: rem(14px);
-	height: rem(44px);
-	text-transform: uppercase;
-	font-weight: bold;
-	background: $background;
-	color: $color;
-	border: 1px solid $border;
-
-	@include transition($ease-0);
-	@include border-radius(rem(25px));
-
-	&:hover {
-		opacity: 0.8;
-		background: $background;
-		color: $color;
-		border: 1px solid $border;
-	}
-}
-
-@mixin btn-white {
-	@include btn($white, $color-0);
-}
-
-.btn {
-	@include btn;
-}
-
-.btn-yellow {
-	@include btn($color-1, $color-0, $color-0);
-}
-
-.btn-white {
-	@include btn-white;
-}
-
-.btn-big {
-	@include btn;
-
+@mixin btn-big {
 	height: rem(60px);
 	font-size: rem(20px);
 	width: rem(390px);
@@ -53,4 +10,67 @@
 		height: rem(50px);
 		width: rem(280px);
 	}
+}
+
+@mixin btn($background: $color-0, $color: $color-1, $border: $color-0) {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: rem(250px);
+	padding: 0 rem(10px);
+	font-size: rem(14px);
+	height: rem(44px);
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	background: $background;
+	color: $color;
+	border: 1px solid $border;
+
+	@include transition($ease-0);
+	@include border-radius(rem(25px));
+
+	&:hover {
+		background: lighten($background, 5%);
+		color: $color;
+		border: 1px solid $border;
+	}
+
+	&.btn-big {
+		@include btn-big();
+	}
+}
+
+@mixin btn-white {
+	@include btn($white, $color-0);
+}
+
+.btn {
+	@include btn;
+
+	&:hover {
+		background: #4763c5;
+	}
+}
+
+.btn-yellow {
+	@include btn($color-1, $color-0, $color-0);
+
+	&:hover {
+		background: #f5ee5c;
+	}
+}
+
+.btn-white {
+	@include btn-white;
+
+	&:hover {
+		background: $color-0;
+		color: $color-1;
+	}
+}
+
+.btn-big {
+	@include btn();
+	@include btn-big();
 }

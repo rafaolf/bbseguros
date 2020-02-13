@@ -1,6 +1,8 @@
 .main-header {
 	z-index: 10;
 	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 
 	@include transition($ease-1);
@@ -302,14 +304,10 @@
 		right: 0;
 		width: 100%;
 		background: $white;
-		opacity: 0;
+		display: none;
 		padding: rem(50px) 0;
 		pointer-events: none;
-
-		@include transform-origin(top, center);
-		@include transform(scale(1, 0));
-		@include transition($ease-1);
-
+		
 		.sub-menu {
 			display: flex;
 
@@ -370,13 +368,6 @@
 					}
 				}
 			}
-		}
-
-		&.active {
-			pointer-events: initial;
-			opacity: 1;
-
-			@include transform(scale(1, 1));
 		}
 	}
 
@@ -450,5 +441,11 @@
 				}
 			}
 		}
+	}
+}
+
+.user-logged-in.toolbar-horizontal {
+	.main-header {
+		top: 79px;
 	}
 }

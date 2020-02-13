@@ -38,6 +38,11 @@ body {
   // max-width: $screen-max;
   max-width: 100%;
   margin: 0 auto;
+  padding-top: rem($height-header);
+
+  @media #{$max-sm} {
+
+  }
 }
 
 * {
@@ -101,7 +106,7 @@ a {
 .paragraph {
   font-family: $font-0;
   line-height: normal;
-  font-size: rem(16px);
+  font-size: rem(22px);
   line-height: 1.4;
 
   &~p {

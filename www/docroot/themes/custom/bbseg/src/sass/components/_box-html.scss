@@ -1,0 +1,69 @@
+.box-html {
+	font-size: rem(22px);
+	color: $gray-2;
+
+	> * {
+		font-size: inherit;
+		font-weight: inherit;
+		margin: 0;
+
+		// + * {
+		// 	margin-top: rem(20px);
+		// }
+	}
+
+	> h1,
+	> h2,
+	> h3,
+	> h4 {
+		padding-top: rem(4px);
+		font-family: $font-1;
+		line-height: 0.95;
+		color: $color-0;
+	}
+
+	> h1 {
+		font-size: 2.4em;
+	}
+	> h2 {
+		font-size: 2em;
+	}
+	> h3 {
+		font-size: 1.6em;
+	}
+	> h4 {
+		font-size: 1.2em;
+	}
+
+	> h5,
+	> h6 {
+		font-weight: bold;
+		color: $color-0;
+		padding-bottom: rem(4px);
+	}
+
+	ul {
+		li {
+			position: relative;
+			padding-left: rem(22px);
+			margin-bottom: rem(10px);
+			color: $color-0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&:before {
+				content: "";
+				display: block;
+				width: rem(14px);
+				height: rem(12px);
+				background: use-svg(arrow-li, $color-0) no-repeat center center;
+				background-size: contain;
+				position: absolute;
+				top: 0.4em;
+				left: 0;
+			}
+		}
+	}
+}

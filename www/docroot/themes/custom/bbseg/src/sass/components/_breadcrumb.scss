@@ -1,0 +1,51 @@
+.block-system-breadcrumb-block {
+	@extend .container;
+
+	position: relative;
+	z-index: 2;
+
+	.breadcrumb {
+		position: absolute;
+		top: 0;
+
+		ol {
+			display: flex;
+			padding: rem(20px) 0;
+
+			li {
+				a {
+					display: flex;
+					align-items: center;
+					color: $white;
+					font-size: rem(12px);
+					padding: 0 0 0 rem(4px);
+					opacity: 0.8;
+
+					@include transition($ease-0);
+
+					&:hover {
+						opacity: 1;
+					}
+
+					&:after {
+						content: "";
+						display: inline-block;
+						width: rem(6px);
+						height: rem(8px);
+						margin-left: rem(4px);
+                        background: use-svg(arrow, $white) no-repeat right center;
+                        background-size: contain;
+					}
+				}
+
+				&:last-child {
+					a {
+						&:after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

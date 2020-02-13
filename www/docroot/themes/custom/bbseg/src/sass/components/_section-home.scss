@@ -1,14 +1,9 @@
 .section-home {
 	position: relative;
 	display: flex;
-	height: 100vh;
+	height: calc(100vh - #{rem($height-header)});
 	width: 100%;
 	align-items: center;
-	padding-top: rem($height-header);
-
-	@media #{$max-sm} {
-		padding-top: rem($height-header-xs);
-	}
 
 	.image {
 		@extend .full-image;
@@ -16,7 +11,6 @@
 		pointer-events: none;
 		background: $color-2;
 		z-index: 0;
-		margin-top: rem(100px);
 
 		&:after {
 			content: "";
@@ -79,6 +73,38 @@
 			@media #{$max-xs} {
 				font-size: rem(18px);
 			}
+		}
+	}
+
+	
+
+	.button-next {
+		position: absolute;
+		bottom: rem(50px);
+		left: 50%;
+		width: rem(44px);
+		height: rem(44px);
+		z-index: 9;
+		cursor: pointer;
+		background: use-svg(arrow-light, $white) no-repeat center center;
+		opacity: 0;
+		background-size: contain;
+
+		@include transition($ease-0);
+		@include transform(translateX(-50%));
+
+		@media #{$max-sm} {
+			background: use-svg(arrow, $white) no-repeat center center;
+			bottom: rem(10px);
+			background-size: rem(12px) auto;
+
+			@include transform(translateX(-50%) rotate(90deg));
+		}
+	}
+
+	&.section-active {
+		.button-next {
+			opacity: 1;
 		}
 	}
 

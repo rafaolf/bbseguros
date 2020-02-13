@@ -20,11 +20,12 @@ $desktop-width: 1920px !default;
 $max-container: 1680px !default;
 
 /*** COLORs ***/
-$white: #FFFFFF;
+$white: #ffffff;
 $black: #000000;
 
-$gray-0: #EFEFEF;
+$gray-0: #efefef;
 $gray-1: #999999;
+$gray-2: #2c2c2c;
 
 $color-0: #193db7;
 $color-1: #fff300;
@@ -37,12 +38,9 @@ $color-easy: #d2df8f;
 $color-intermediate: #fbc36c;
 $color-hard: #ea6753;
 
-
 /*** FONTs ***/
-$font-0: "Open Sans",
-sans-serif;
-$font-1: "Bebas Neue",
-sans-serif;
+$font-0: "Open Sans", sans-serif;
+$font-1: "Bebas Neue", sans-serif;
 
 $font-size: 16px;
 
@@ -52,10 +50,8 @@ $ease-1: all 0.5s ease-in-out;
 
 $ease-header: transform 0.5s ease-in-out;
 
-$ease-transform-0: transform 0.5s ease-in-out,
-visibility 0.1s linear 1s;
-$ease-transform-1: transform 0.5s ease-in-out,
-visibility 0.1s linear 0s;
+$ease-transform-0: transform 0.5s ease-in-out, visibility 0.1s linear 1s;
+$ease-transform-1: transform 0.5s ease-in-out, visibility 0.1s linear 0s;
 
 /*** CONFIGs ***/
 $img-path: "../img/";

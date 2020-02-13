@@ -175,14 +175,18 @@
     document.onkeydown = null;
   }
 
-  var scroll = {
+  var scrollHome = {
     sections: null,
     scrollDisabled: false,
 
     init: function () {
       var othis = this;
 
+      othis.header = $('.region-full-menu');
       othis.sections = $('#fullpage .section');
+
+      if ($('.section-home').length <= 0)
+        return;
 
       othis.createControllers();
 
@@ -205,7 +209,8 @@
     setActive: function (toActive) {
       var othis = this;
       var newActive = toActive != undefined ? toActive : othis.searchActive();
-      othis.showHideMenu();
+
+      // othis.showHideMenu();
 
       if (othis.active == undefined || othis.active.attr('id') != newActive.attr('id')) {
         if (!othis.scrollDisabled) {
@@ -213,14 +218,6 @@
 
           othis.scrollDisabled = true;
           othis.active = newActive;
-
-          // if (othis.active.attr('id').indexOf('home') >= 0) {
-          //   $('.main-header').removeClass('menu-fixed');
-          //   $('.pagination-sections').removeClass('pagination-fixed');
-          // } else {
-          //   $('.main-header').addClass('menu-fixed');
-          //   $('.pagination-sections').addClass('pagination-fixed');
-          // }
 
           if (othis.active.attr('id').indexOf('footer') >= 0) {
             $('.button-next').fadeOut();
@@ -235,15 +232,17 @@
             paginationActive.addClass('active');
 
           $('html, body').stop().animate({
-            scrollTop: othis.active.offset().top
+            scrollTop: othis.active.offset().top - othis.header.outerHeight(true)
           }, 1000, function () {
-            othis.scrollDisabled = false;
-            enableScroll();
+            setTimeout(function () {
+              othis.scrollDisabled = false;
+              enableScroll();
 
-            othis.sections.removeClass('section-active');
-            othis.active.addClass('section-active');
+              othis.sections.removeClass('section-active');
+              othis.active.addClass('section-active');
 
-            othis.lastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop(); // For Mobile or negative scrolling
+              othis.lastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop(); // For Mobile or negative scrolling
+            }, 200);
           });
         }
       }
@@ -257,32 +256,38 @@
       $(othis.sections.get().reverse()).each(function () {
         var $el = $(this);
 
-        if (active != undefined)
-          return;
-        if (st > othis.lastScrollTop) {
-          if ($el.offset().top - ($(window).scrollTop() + $(window).height()) < 0)
-            active = $el;
-        } else {
-          if ($el.offset().top - $(window).scrollTop() <= 0)
-            active = $el;
+        if (active == undefined) {
+
+          if (st > othis.lastScrollTop) {
+            if (($(window).scrollTop() + $(window).height() - $el.offset().top).toFixed(2) > 5) {
+              active = $el;
+            }
+          } else {
+            if (($(window).scrollTop() + othis.header.outerHeight(true) - $el.offset().top).toFixed(2) > 5) {
+              active = $el;
+            }
+          }
         }
-      })
+      });
+
+      if (active == undefined)
+        active = othis.sections.first();
 
       return active;
     },
 
-    showHideMenu() {
-      var othis = this;
-      var st = $(window).scrollTop() - 2;
+    // showHideMenu() {
+    //   var othis = this;
+    //   var st = $(window).scrollTop() - 2;
 
-      if (st < othis.showHideLastScrollTop) {
-        $('.main-header').removeClass('hide-menu');
-      } else {
-        $('.main-header').addClass('hide-menu');
-      }
+    //   if (st < othis.showHideLastScrollTop) {
+    //     $('.main-header').removeClass('hide-menu');
+    //   } else {
+    //     $('.main-header').addClass('hide-menu');
+    //   }
 
-      othis.showHideLastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop();
-    },
+    //   othis.showHideLastScrollTop = $(window).scrollTop() <= 0 ? 0 : $(window).scrollTop();
+    // },
 
     createControllers: function () {
       var pagination = "<ul class=\"pagination-sections\">";
@@ -300,13 +305,13 @@
       $(".button-next").click(function (e) {
         e.preventDefault();
 
-        scroll.setActive($('.section-active').nextAll('.section'));
+        scrollHome.setActive($('.section-active').nextAll('.section'));
       });
 
       $(".pagination-sections a").click(function (e) {
         e.preventDefault();
 
-        scroll.setActive($($(this).attr('href')));
+        scrollHome.setActive($($(this).attr('href')));
       });
     }
   }
@@ -379,8 +384,6 @@
       showLoading();
 
       var reload = setInterval(function () {
-        // console.log(othis.form.find('form'), othis.formID, othis.form.find('form').attr('data-drupal-form-fields'));
-
         if (othis.form.find('form') == undefined || othis.formID == othis.form.find('form').attr('data-drupal-form-fields'))
           return;
 
@@ -447,17 +450,19 @@
       var $this = $(this);
       var $el = $('.region-sub-menu');
 
-      if($('.modal-search').hasClass('active')){
+      if ($('.modal-search').hasClass('active')) {
         $('.modal-search').removeClass('active');
         $('.open-search, .modal-search .button-close').removeClass('active');
       }
 
-      if($el.hasClass('active')){
+      if ($el.hasClass('active')) {
         $this.removeClass('active');
         $el.removeClass('active');
+        $el.slideUp();
       } else {
         $this.addClass('active');
         $el.addClass('active');
+        $el.slideDown();
       }
     });
   }
@@ -469,12 +474,12 @@
       var $this = $('.open-search, .modal-search .button-close');
       var $el = $('.modal-search');
 
-      if($('.open-sub-menu').hasClass('active')){
+      if ($('.open-sub-menu').hasClass('active')) {
         $('.open-sub-menu').removeClass('active');
         $('.region-sub-menu').removeClass('active');
       }
 
-      if($el.hasClass('active')){
+      if ($el.hasClass('active')) {
         $this.removeClass('active');
         $el.removeClass('active');
       } else {
@@ -490,7 +495,7 @@
     initAccordion();
     initAccordionFooter();
 
-    scroll.init();
+    scrollHome.init();
 
     menu.init();
     navegacaoGuiada.init()
