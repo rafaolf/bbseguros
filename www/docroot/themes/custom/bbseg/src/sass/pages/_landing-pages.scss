@@ -1,5 +1,9 @@
 .landing-page {
 	padding-bottom: rem(100px);
+
+	.field--name-field-field-landing-ins-campaign {
+		padding-top: rem(100px);
+	}
 }
 
 .landing-banner {
@@ -131,7 +135,7 @@
 }
 
 .landing-type {
-	padding-top: rem(80px);
+	padding-top: rem(100px);
 
 	.container {
 		display: flex;
@@ -228,7 +232,7 @@
 }
 
 .section-faq {
-	padding-top: rem(80px);
+	padding-top: rem(100px);
 	text-align: center;
 
 	.intro {
@@ -302,7 +306,7 @@
 }
 
 .landing-product {
-	padding-top: rem(80px);
+	padding-top: rem(100px);
 
 	.box-html {
 		text-align: center;
@@ -388,12 +392,16 @@
 				// 	}
 				// }
 			}
+
+			&.item-product-insurance {
+				flex: 0 1 32%;
+			}
 		}
 	}
 }
 
 .landing-investments {
-	padding-top: rem(80px);
+	padding-top: rem(100px);
 
 	.box-html {
 		text-align: center;
@@ -410,6 +418,7 @@
 
 	.list-investments {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 
 		.item-investment {
@@ -486,6 +495,65 @@
 				// 	}
 				// }
 			}
+
+			&.item-investment-insurance {
+				display: flex;
+				flex-direction: row;
+				flex: 0 1 32%;
+				margin-bottom: 2%;
+
+				.image {
+					flex: 1 0 rem(250px);
+					background: rgba($color-0, 0.3);
+
+					&:before {
+						display: none;
+					}
+				}
+
+				.text {
+					flex: 0 1 auto;
+					padding: rem(30px);
+					text-align: left;
+
+					.title {
+						margin-bottom: 0;
+					}
+
+					.description {
+						font-size: rem(14px);
+
+						p {
+							margin: 0;
+						}
+					}
+
+					.buttons {
+						a {
+							font-size: rem(18px);
+							color: $color-0;
+							display: flex;
+							align-items: center;
+
+							&:after {
+								content: "";
+								display: block;
+								width: rem(8px);
+								height: rem(12px);
+								margin-left: rem(5px);
+								background: use-svg(arrow, $color-0) no-repeat center center;
+								background-size: contain;
+
+								@include transition($ease-0);
+							}
+
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -512,7 +580,7 @@
 }
 
 .section-trigger-insurance {
-	padding-top: rem(80px);
+	padding-top: rem(100px);
 
 	.intro {
 		text-align: center;
@@ -525,6 +593,9 @@
 	}
 
 	.list-insurances {
+		display: flex;
+		justify-content: center;
+
 		.item-insurance {
 			display: flex;
 			flex-wrap: wrap;
@@ -533,6 +604,7 @@
 			justify-content: center;
 			font-weight: 700;
 			font-size: rem(26px);
+			margin: 0 rem(30px);
 
 			@media #{$max-sm} {
 				font-size: rem(16px);
@@ -548,7 +620,6 @@
 				display: block;
 				width: rem(12px);
 				height: rem(12px);
-				margin-left: rem(5px);
 				background: use-svg(arrow, $color-0) no-repeat center center transparent;
 				background-size: contain;
 
@@ -556,6 +627,11 @@
 					width: rem(6px);
 					margin-left: rem(4px);
 				}
+			}
+
+			&:after {
+				margin-left: rem(5px);
+				margin-right: rem(-17px);
 			}
 
 			&:before {
@@ -589,6 +665,8 @@
 			}
 
 			&.item-auto {
+				width: rem(100px);
+
 				&:before {
 					background: use-svg(icon-auto, $color-0) no-repeat center center transparent;
 				}
