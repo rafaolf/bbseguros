@@ -72,15 +72,17 @@
 #}
 
 <div class="item-product item-product-insurance">
-	<div class="image">
-		<img src="{{ file_url( content.field_ins_image[0]['#item'].entity.uri.value ) }}">
-	</div>
-	<div class="text">
-		<div class="title">
-			{{ content.field_ins_title.0 }}
+	<a href="/seguros-residencial">
+		<div class="image">
+			<img src="{{ file_url( content.field_ins_image[0]['#item'].entity.uri.value ) }}">
 		</div>
-		<div class="description">
-			{{ content.field_ins_body.0 }}
+		<div class="text">
+			<div class="title">
+				{{ content.field_ins_title.0 }}
+			</div>
+			<div class="description">
+				{{ content.field_ins_body.0 }}
+			</div>
 		</div>
-	</div>
+	</a>
 </div>
