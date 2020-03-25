@@ -8,7 +8,8 @@
 	cursor: pointer;
 }
 
-#webform-submission-navegacao-guiada-form-ajax {
+#webform-submission-navegacao-guiada-form-ajax,
+#webform-submission-navegacao-guiada-previdencia-form-ajax {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -296,6 +297,48 @@
 				}
 			}
 
+			.form-text {
+				@include _btn($white, $color-0, $white);
+
+				width: 100%;
+				padding: 0 rem(40px);
+
+				@media #{$max-sm} {
+					text-align: center;
+					font-weight: bold;
+				}
+			}
+
+			.btn-next {
+				@include _btn($color-1, $color-0, $color-1);
+
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				text-transform: none;
+
+				@media #{$max-sm} {
+					width: 100%;
+					text-transform: uppercase;
+					font-weight: bold;
+					text-align: center;
+				}
+
+				&:after {
+					content: "";
+					display: block;
+					width: rem(15px);
+					height: rem(22px);
+					background: use-svg(arrow, $color-0) no-repeat center center;
+					background-size: contain;
+					margin-left: rem(12px);
+
+					@media #{$max-sm} {
+						display: none;
+					}
+				}
+			}
+
 			&[id^="edit-inicio"] {
 				@media #{$max-sm} {
 					padding-bottom: rem(62px);
@@ -326,48 +369,6 @@
 						}
 					}
 				}
-
-				.form-text {
-					@include _btn($white, $color-0, $white);
-
-					width: 100%;
-					padding: 0 rem(40px);
-
-					@media #{$max-sm} {
-						text-align: center;
-						font-weight: bold;
-					}
-				}
-
-				.btn-next {
-					@include _btn($color-1, $color-0, $color-1);
-
-					position: absolute;
-					bottom: 0;
-					right: 0;
-					text-transform: none;
-
-					@media #{$max-sm} {
-						width: 100%;
-						text-transform: uppercase;
-						font-weight: bold;
-						text-align: center;
-					}
-
-					&:after {
-						content: "";
-						display: block;
-						width: rem(15px);
-						height: rem(22px);
-						background: use-svg(arrow, $color-0) no-repeat center center;
-						background-size: contain;
-						margin-left: rem(12px);
-
-						@media #{$max-sm} {
-							display: none;
-						}
-					}
-				}
 			}
 
 			&[id^="edit-segunda"] {
@@ -375,7 +376,7 @@
 					display: block;
 					width: rem(118px);
 					height: rem(108px);
-					background-image: use-svg(icon-calendar);
+					background-image: use-svg(icon-calendar, $white);
 
 					@media #{$max-sm} {
 						width: rem(52px);
@@ -496,6 +497,314 @@
 					.form-text {
 						border: 2px solid $color-danger;
 					}
+				}
+			}
+		}
+	}
+}
+
+#webform-submission-navegacao-guiada-previdencia-form-ajax {
+	background: #fff665;
+	color: $color-0;
+
+	@mixin _btn($background: $color-0, $color: $color-1, $border: $color-0) {
+		display: flex;
+		align-items: center;
+		padding: 0 rem(40px);
+		font-size: rem(24px);
+		height: rem(80px);
+		background: $background;
+		color: $color;
+		justify-content: center;
+		border: 2px solid $border;
+
+		@include border-radius(rem(40px));
+
+		@media #{$max-sm} {
+			font-size: rem(12px);
+			height: rem(44px);
+			font-weight: bold;
+			padding: 0 rem(15px);
+			border: 1px solid $border;
+
+			@include border-radius(rem(22px));
+		}
+	}
+
+	.btn-sair {
+		border: 1px solid $color-0;
+		color: $color-0;
+	}
+
+	.webform-submission-form {
+		.webform-progress {
+			.webform-progress-tracker {
+				.progress-step {
+					.progress-marker {
+						background: $white;
+					}
+
+					&.is-active {
+						.progress-marker {
+							background: $color-0;
+						}
+					}
+				}
+			}
+		}
+
+		.form-wrapper[data-webform-key] {
+			.form-item {
+				.form-radios {
+					.form-type-radio {
+						input[type="radio"] {
+							@extend .sr-only;
+
+							~ label {
+								@include _btn(transparent, $color-0, $color-0);
+							}
+
+							&:checked {
+								~ label {
+									@include _btn($color-0, $color-1, $color-0);
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.html {
+				.text-big {
+					color: $color-0;
+				}
+			}
+
+			.form-text {
+			}
+
+			.btn-next {
+				@include _btn($color-0, $color-1, $color-0);
+
+				&:after {
+					background: use-svg(arrow, $color-1) no-repeat center center;
+				}
+			}
+
+			&[id^="edit-inicio"] {
+				&:before {
+					background-image: url($img-path + "icon-pig.png");
+				}
+
+				.html {
+					.description {
+					}
+				}
+			}
+
+			&[id^="edit-segunda"] {
+				max-width: rem(530px);
+
+				&:before {
+					background-image: use-svg(icon-calendar, $color-0);
+				}
+			}
+
+			&[id^="edit-terceira"] {
+				&:before {
+					background-image: url($img-path + "icon-gender.png");
+				}
+
+				.form-item {
+					.form-radios {
+						.form-type-radio {
+						}
+					}
+				}
+			}
+
+			&[id^="edit-quarta"] {
+				max-width: rem(530px);
+
+				&:before {
+					background-image: url($img-path + "icon-time.png");
+				}
+			}
+
+			&[id^="edit-quinta"] {
+				display: flex;
+				flex-wrap: wrap;
+				max-width: rem(1260px);
+
+				&:before {
+					display: none;
+				}
+
+				.js-form-type-webform-markup {
+					flex: 0 0 100%;
+
+					.html {
+						.description {
+							font-size: rem(36px);
+							font-weight: bold;
+							margin-bottom: rem(60px);
+						}
+
+						.btn-next {
+							bottom: 0;
+							left: auto;
+							right: auto;
+							margin: rem(90px) auto 0;
+							position: relative;
+							display: inline-flex;
+						}
+					}
+				}
+
+				.js-form-type-textfield {
+					position: relative;
+					flex: 0 0 33.333%;
+					padding: rem(15px) rem(30px);
+					border-right: 2px solid $color-0;
+
+					.form-required {
+						font-size: rem(25px);
+					}
+
+					.form-text {
+						width: calc(100% - #{rem(100px)});
+						padding-left: rem(100px);
+						margin: 0 auto;
+					}
+
+					&:after {
+						@include _btn($color-0, $color-1, $color-0);
+
+						content: "R$";
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						padding: 0;
+						width: rem(80px);
+						font-weight: bold;
+						text-transform: none;
+						bottom: rem(15px);
+						left: rem(80px);
+					}
+
+					&.form-item-quanto-voce-pretende-acumular-no-total- {
+						border-right: none;
+					}
+				}
+			}
+
+			&[id^="edit-sexta"] {
+				max-width: rem(1300px);
+
+				.html {
+					.text-big {
+						font-size: rem(120px);
+						max-width: rem(810px);
+						margin: 0 auto rem(60px);
+					}
+
+					.list-result {
+						display: flex;
+						justify-content: space-between;
+
+						.item {
+							flex: 0 0 23.5%;
+
+							.icon {
+								width: rem(110px);
+								margin: 0 auto rem(10px);
+
+								&::before {
+									content: "";
+									padding-top: 100%;
+									display: block;
+									background: {
+										repeat: no-repeat;
+										position: center center;
+										size: contain;
+									}
+								}
+
+								&.icon-time {
+									&:before {
+										background-image: url($img-path + "icon-time.png");
+									}
+								}
+								&.icon-money {
+									&:before {
+										background-image: url($img-path + "icon-money.png");
+									}
+								}
+								&.icon-pig {
+									&:before {
+										background-image: url($img-path + "icon-pig.png");
+									}
+								}
+								&.icon-calendar {
+									&:before {
+										background-image: use-svg(icon-calendar, $color-0);
+									}
+								}
+							}
+
+							p {
+								color: $color-0;
+								font-family: $font-1;
+								text-transform: uppercase;
+								font-size: rem(30px);
+								line-height: 1;
+
+								.text-result {
+									font-weight: bold;
+									font-size: rem(22px);
+									display: block;
+									text-transform: initial;
+									color: $black;
+									font-family: $font-0;
+								}
+							}
+						}
+					}
+				}
+
+				&:before {
+					display: none;
+				}
+
+				.form-item {
+					.form-radios {
+						.form-type-radio {
+							@media #{$min-md} {
+								flex: 0 0 rem(530px);
+							}
+						}
+					}
+				}
+			}
+
+			&[id^="edit-XXX"] {
+				&:before {
+					display: block;
+					width: rem(10px);
+					height: rem(10px);
+					background-image: use-svg(icon-house);
+				}
+			}
+		}
+
+		[data-drupal-messages] {
+			~ .form-wrapper {
+				.form-item {
+					.form-required {
+					}
+				}
+
+				&[id^="edit-inicio"] {
 				}
 			}
 		}

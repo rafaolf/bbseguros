@@ -3,7 +3,7 @@
     return $(window).width() <= 991;
   }
 
-  $.fn.hasScrollBar = function () {
+  jQuery.fn.hasScrollBar = function () {
     return this.get(0).scrollHeight > this.height();
   }
 
@@ -321,7 +321,7 @@
     init: function () {
       var othis = this;
 
-      othis.form = $('#webform-submission-navegacao-guiada-form-ajax');
+      othis.form = $('#webform-submission-navegacao-guiada-form-ajax, #webform-submission-navegacao-guiada-previdencia-form-ajax');
       othis.formID = othis.form.find('form').attr('data-drupal-form-fields');
       othis.btnNext = othis.form.find('.webform-button--next');
       othis.btnPrev = othis.form.find('.webform-button--previous');
@@ -489,6 +489,86 @@
     });
   }
 
+  var modal = {
+    backdrop: null,
+    modalActive: [],
+
+    init: function () {
+      var othis = this;
+
+      othis.backdrop = $('.modal-backdrop');
+      othis.modalOpen = $('[modal-open]');
+      othis.modalClose = $('[modal-close]');
+
+      othis.addEventListener();
+    },
+
+    addEventListener: function () {
+      var othis = this;
+
+      othis.backdrop.click(function (e) {
+        e.preventDefault();
+
+        othis.close();
+      });
+
+      othis.modalClose.click(function (e) {
+        e.preventDefault();
+
+        othis.close();
+      });
+
+      othis.modalOpen.click(function (e) {
+        e.preventDefault();
+
+        othis.open($(this).attr('modal-open'));
+      });
+    },
+
+    open: function (selector) {
+      var othis = this;
+      var $el = typeof selector == 'string' ? $(selector) : selector;
+
+      $el.addClass('active');
+      othis.backdrop.addClass('active ' + $el.data('backdrop-class'));
+
+      lockScroll();
+
+      othis.modalActive.push($el);
+    },
+
+    close: function (selector) {
+      var othis = this;
+      var index = -1;
+      var $el;
+
+      if (othis.modalActive.length <= 0)
+        return;
+
+      if (selector == undefined) {
+        index = othis.modalActive.length - 1;
+      } else {
+        for (i = 0; i < othis.modalActive.length; i++) {
+          if (othis.modalActive[i].filter(selector).length > 0 && index < 0) {
+            index = i;
+          }
+        }
+      }
+
+      $el = othis.modalActive[index];
+
+      $el.removeClass('active');
+      othis.backdrop.removeClass($el.data('backdrop-class'));
+
+      othis.modalActive.splice(index, 1);
+
+      if (othis.modalActive.length <= 0) {
+        othis.backdrop.removeClass('active');
+        unlockScroll();
+      }
+    }
+  }
+
   var $ = jQuery;
 
   $(function () {
@@ -499,9 +579,13 @@
 
     menu.init();
     navegacaoGuiada.init()
+    modal.init();
 
     openSubmenu();
     openSearch();
+
+    if (window.location.href.indexOf('/produto-2') > 0)
+      modal.open('#modalRouboFurto');
   });
 
 })(jQuery);

@@ -55,7 +55,10 @@
   </div>
 {% endblock paragraph %} #}
 
-<section class="landing-card">
+{% set textPositon = content.field_cards_alignment[0]['#markup'] == 'Right' ? 'txt-right' : '' %}
+{% set textSize = content.field_cards_percentage[0]['#markup'] == '50% image / 50% body' ? 'txt-50' : '' %}
+
+<section class="landing-card {{ textPositon }} {{ textSize }}">
 	<div class="container">
 		{% if content.field_cards_body[0] %}
 			<div class="box-html">

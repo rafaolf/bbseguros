@@ -1,0 +1,99 @@
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 12;
+	background: $white;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 90vw;
+	max-height: 90vh;
+	width: rem($max-container);
+	overflow: hidden;
+
+	@include transition($ease-1);
+	@include transform(translateY(-50%));
+	@include border-radius(20px);
+
+	&.active {
+		pointer-events: auto;
+		opacity: 1;
+	}
+
+	.btn-close {
+		position: absolute;
+		top: rem(30px);
+		right: rem(30px);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(50px);
+		height: rem(50px);
+		border: 2px solid $color-0;
+		font-size: rem(30px);
+		color: $color-0;
+		font-weight: bold;
+
+		@include border-radius(100%);
+	}
+
+	&#modalRouboFurto {
+		.modal-content {
+			display: flex;
+			align-items: center;
+
+			.image {
+				flex: 0 0 rem(500px);
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.text {
+				padding-left: rem(60px);
+
+				.box-html {
+					h1,
+					h2,
+					h3 {
+						font-size: rem(72px);
+					}
+
+					p,
+					li {
+						font-size: rem(24px);
+						color: $gray-2;
+					}
+				}
+			}
+		}
+	}
+}
+
+.modal-backdrop {
+	opacity: 0;
+	background: rgba($color-0, 0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 11;
+	pointer-events: none;
+
+	@include transition($ease-1);
+
+	&.active {
+		pointer-events: auto;
+		opacity: 1;
+	}
+}

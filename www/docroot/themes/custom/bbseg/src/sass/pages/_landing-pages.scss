@@ -76,16 +76,12 @@
 			> * + * {
 				margin: 0;
 			}
+		}
+	}
 
-			// @media #{$max-xs} {
-			// 	font-size: rem(18px);
-			// }
-
-			// > * {
-			// 	font-size: inherit;
-			// 	font-weight: inherit;
-			// 	margin: 0;
-			// }
+	&.landing-banner-dente-de-leite {
+		.description {
+			max-width: rem(550px);
 		}
 	}
 }
@@ -373,8 +369,6 @@
 					margin: 0 auto;
 					line-height: 1.6;
 
-					// @include ellipsis-multiline(24px, 3);
-
 					> * {
 						font-family: inherit;
 						font-size: inherit;
@@ -382,15 +376,6 @@
 						line-height: inherit;
 					}
 				}
-
-				// .buttons {
-				// 	display: flex;
-				// 	justify-content: space-between;
-
-				// 	> * {
-				// 		width: 48%;
-				// 	}
-				// }
 			}
 
 			&.item-product-insurance {
@@ -416,17 +401,27 @@
 		}
 	}
 
+	.obs-text {
+		text-align: center;
+		padding-top: rem(40px);
+	}
+
 	.list-investments {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: center;
 
 		.item-investment {
 			flex: 0 1 32%;
+			margin-left: 2%;
 			border: 1px solid $color-0;
 			overflow: hidden;
 			display: flex;
 			flex-direction: column;
+
+			&:nth-child(3n + 1) {
+				margin-left: 0;
+			}
 
 			@include border-radius(20px);
 
@@ -476,8 +471,6 @@
 					margin-bottom: rem(20px);
 					flex: 1 0 auto;
 
-					// @include ellipsis-multiline(24px, 3);
-
 					> * {
 						font-family: inherit;
 						font-size: inherit;
@@ -486,14 +479,14 @@
 					}
 				}
 
-				// .buttons {
-				// 	display: flex;
-				// 	justify-content: space-between;
+				.buttons {
+					display: flex;
+					justify-content: center;
 
-				// 	> * {
-				// 		width: 48%;
-				// 	}
-				// }
+					> * {
+						margin: 0 rem(10px);
+					}
+				}
 			}
 
 			&.item-investment-insurance {
@@ -554,6 +547,24 @@
 					}
 				}
 			}
+
+			&.item-investment-dental-para-voce {
+				.text {
+					padding: rem(30px) rem(60px);
+
+					.description {
+						@extend .box-html;
+						text-align: left;
+
+						ul {
+							li {
+								color: $gray-2;
+								font-size: rem(18px);
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -575,6 +586,186 @@
 			font-size: inherit;
 			font-weight: inherit;
 			line-height: inherit;
+		}
+	}
+}
+
+.landing-mini-cards {
+	padding-top: rem(100px);
+
+	.box-html {
+		text-align: center;
+		margin-bottom: rem(30px);
+		color: $color-0;
+
+		h1,
+		h2,
+		h3 {
+			font-family: $font-1;
+			font-size: rem(80px);
+		}
+	}
+
+	.list-mini-cards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		.item-mini-card {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			flex: 0 1 32%;
+			margin-left: 2%;
+			margin-bottom: 2%;
+			border: 1px solid $color-0;
+			overflow: hidden;
+
+			&:nth-child(3n + 1) {
+				margin-left: 0;
+			}
+
+			@include border-radius(20px);
+
+			.box-image {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex: 0 0 40%;
+				position: relative;
+
+				.image {
+					position: relative;
+					display: block;
+					width: rem(110px);
+
+					&:before {
+						content: "";
+						display: block;
+						padding-top: 120%;
+					}
+
+					img {
+						@extend .object-contain;
+					}
+				}
+			}
+
+			.text {
+				flex: 0 0 60%;
+				display: flex;
+				flex-direction: column;
+				padding: rem(20px) rem(20px) rem(20px) 0;
+				text-align: left;
+
+				.title {
+					font-size: rem(28px);
+					color: $color-0;
+					font-family: $font-1;
+					margin-bottom: rem(10px);
+
+					> * {
+						font-family: inherit;
+						font-size: inherit;
+						font-weight: inherit;
+						line-height: inherit;
+					}
+				}
+
+				.description {
+					display: block;
+					color: $gray-2;
+					font-size: rem(18px);
+					margin-bottom: rem(10px);
+					max-width: rem(590px);
+					margin: 0 auto;
+					line-height: 1.4;
+					margin-bottom: rem(20px);
+					flex: 1 0 auto;
+
+					> * {
+						font-family: inherit;
+						font-size: inherit;
+						font-weight: inherit;
+						line-height: inherit;
+					}
+				}
+			}
+
+			.buttons {
+				flex: 1 1 100%;
+				margin-top: auto;
+
+				a {
+					font-size: rem(14px);
+					height: rem(40px);
+					width: 100%;
+					justify-content: flex-end;
+					padding: 0 rem(30px);
+
+					@include border-radius(0);
+				}
+			}
+		}
+	}
+}
+
+.landing-yellow-mini-cards {
+	padding-top: rem(100px);
+
+	.box-html {
+		text-align: center;
+		margin-bottom: rem(30px);
+		color: $color-0;
+
+		h1,
+		h2,
+		h3 {
+			font-family: $font-1;
+			font-size: rem(80px);
+		}
+	}
+
+	.list-mini-cards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		.item-mini-card {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			flex: 0 1 32%;
+			margin-left: 2%;
+			margin-bottom: 2%;
+			background: $color-1;
+			overflow: hidden;
+
+			&:nth-child(3n + 1) {
+				margin-left: 0;
+			}
+
+			@include border-radius(20px);
+
+			.text {
+				display: flex;
+				width: 100%;
+				height: rem(275px);
+				flex-direction: column;
+				justify-content: center;
+				align-content: center;
+				padding: rem(20px);
+				text-align: center;
+				font-size: rem(30px);
+
+				span {
+					display: block;
+					text-transform: uppercase;
+					font-size: rem(84px);
+					line-height: 1;
+					font-family: $font-1;
+				}
+			}
 		}
 	}
 }
@@ -669,6 +860,304 @@
 
 				&:before {
 					background: use-svg(icon-auto, $color-0) no-repeat center center transparent;
+				}
+			}
+		}
+	}
+}
+
+.section-contrate {
+	background: $color-1;
+	margin-top: rem(80px);
+	padding: rem(80px) 0 rem(80px) rem(130px);
+
+	.title {
+		text-align: center;
+		margin-bottom: rem(40px);
+		color: $color-0;
+		font-family: $font-1;
+		font-size: rem(80px);
+	}
+
+	.box-text-image {
+		display: flex;
+		align-items: center;
+		.text {
+			flex: 0 0 rem(800px);
+			margin-right: rem(40px);
+
+			.box-html {
+				color: $color-0;
+				margin-bottom: rem(40px);
+			}
+		}
+
+		.image {
+			flex: 1 1 auto;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.section-good-infos {
+	padding-top: rem(100px);
+
+	.list-good-infos {
+		display: flex;
+		justify-content: space-between;
+
+		.item {
+			flex: 0 0 32%;
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			align-items: center;
+			justify-content: center;
+
+			.icon {
+				position: relative;
+				margin-bottom: rem(20px);
+				width: rem(130px);
+
+				&:before {
+					content: "";
+					display: block;
+					padding-top: 100%;
+				}
+
+				img {
+					@extend .object-contain;
+				}
+			}
+
+			.title {
+				font-size: rem(36px);
+				font-family: $font-1;
+			}
+
+			.box-html {
+				text-align: center;
+			}
+		}
+	}
+}
+
+.section-additional-text {
+	padding-top: rem(100px);
+
+	.box-html {
+		text-align: center;
+		max-width: rem(650px);
+		margin: 0 auto;
+
+		.title {
+			font-size: rem(80px);
+			margin-bottom: rem(50px);
+		}
+	}
+}
+
+.section-assistance {
+	padding-top: rem(100px);
+
+	.box-html {
+		text-align: center;
+		margin-bottom: rem(30px);
+		color: $color-0;
+
+		h1,
+		h2,
+		h3 {
+			font-family: $font-1;
+			font-size: rem(80px);
+		}
+	}
+
+	.obs {
+		clear: both;
+		padding-top: rem(30px);
+		text-align: center;
+	}
+
+	.list-assistance {
+		float: left;
+		width: 100%;
+		clear: both;
+
+		.item {
+			float: left;
+			margin-left: 2%;
+			width: 23.5%;
+			border: 1px solid $color-0;
+			overflow: hidden;
+
+			@include border-radius(rem(20px));
+
+			&:nth-child(4n + 1) {
+				margin-left: 0;
+			}
+
+			.title {
+				display: flex;
+				align-items: center;
+				height: rem(70px);
+				background: $color-0;
+				padding: 0 rem(30px);
+				font-size: rem(28px);
+				color: $color-1;
+				font-family: $font-1;
+			}
+
+			.description {
+				padding: rem(30px);
+				font-size: rem(18px);
+				color: $gray-2;
+			}
+
+			.accordion {
+				padding-bottom: rem(30px);
+
+				.accordion-content {
+					padding: rem(30px);
+					padding-top: 0;
+
+					ul {
+						li {
+							font-size: rem(18px);
+							color: $gray-2;
+							position: relative;
+							padding-left: rem(22px);
+							margin-bottom: rem(10px);
+
+							&:last-child {
+								margin-bottom: 0;
+							}
+
+							&:before {
+								content: "";
+								display: block;
+								width: rem(14px);
+								height: rem(12px);
+								background: use-svg(arrow-li, $color-0) no-repeat center center;
+								background-size: contain;
+								position: absolute;
+								top: 0.4em;
+								left: 0;
+							}
+						}
+					}
+				}
+
+				.accordion-header {
+					padding: 0 rem(30px);
+					text-align: center;
+
+					span {
+						position: relative;
+						display: inline-flex;
+						align-items: center;
+
+						&:after {
+							content: "";
+							display: block;
+							width: rem(14px);
+							height: rem(14px);
+							background: use-svg(arrow, $color-0) no-repeat center center;
+							background-size: contain;
+							margin-left: rem(6px);
+
+							@include transform(rotate(90deg) scale(1, 1));
+							@include transition($ease-0);
+						}
+					}
+
+					&.active {
+						span {
+							&:after {
+								@include transform(rotate(90deg) scale(-1, 1));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.section-comment {
+	margin-top: rem(80px);
+	padding: rem(70px) 0 rem(80px);
+	background: $color-0;
+
+	.container {
+		display: flex;
+		max-width: rem(1090px);
+	}
+
+	.list-comments {
+		.item {
+			display: flex;
+			align-items: center;
+
+			.image {
+				position: relative;
+				flex: 0 0 rem(250px);
+				overflow: hidden;
+				margin-right: rem(150px);
+
+				@include border-radius(100%);
+
+				&:before {
+					content: "";
+					display: block;
+					padding-top: 100%;
+				}
+
+				img {
+					@extend .object-contain;
+				}
+			}
+
+			.text {
+				position: relative;
+
+				&:before,
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					width: rem(64px);
+					height: rem(54px);
+					background: url($img-path + "quotes.png") no-repeat center center;
+					background-size: contain;
+					margin-left: rem(50px);
+					left: 100%;
+					bottom: rem(30px);
+				}
+
+				&:before {
+					margin-left: 0;
+					margin-right: rem(50px);
+					left: auto;
+					bottom: auto;
+					top: rem(-20px);
+					right: 100%;
+
+					@include rotate(180deg);
+				}
+
+				p {
+					color: $white;
+					font-size: rem(22px);
+
+					&.author {
+						margin-top: rem(15px);
+						font-size: rem(18px);
+						font-weight: bold;
+					}
 				}
 			}
 		}
